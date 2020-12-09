@@ -2,15 +2,14 @@ const crypto = require('crypto');
 const randomString = () => crypto.randomBytes(6).hexSlice();
 
 module.exports = async keystone => {
-  // Count existing users
+  // Count existing stuff users
   const {
     data: {
-      _allUsersMeta: { count = 0 },
+      _allStuffsMeta: { count = 0 },
     },
   } = await keystone.executeGraphQL({
-    context: keystone.createContext({ skipAccessControl: true }),
     query: `query {
-      _allUsersMeta {
+      _allStuffsMeta {
         count
       }
     }`,
@@ -21,9 +20,8 @@ module.exports = async keystone => {
     const email = 'admin@example.com';
 
     const { errors } = await keystone.executeGraphQL({
-      context: keystone.createContext({ skipAccessControl: true }),
-      query: `mutation initialUser($password: String, $email: String) {
-            createUser(data: {name: "Admin", email: $email, isAdmin: true, password: $password}) {
+      query: `mutation initialStuff($password: String, $email: String) {
+            createStuff(data: {username: "Admin", email: $email, password: $password}) {
               id
             }
           }`,
@@ -31,12 +29,12 @@ module.exports = async keystone => {
     });
 
     if (errors) {
-      console.log('failed to create initial user:');
+      console.log('failed to create initial stuff:');
       console.log(errors);
     } else {
       console.log(`
 
-      User created:
+      Stuff created:
         email: ${email}
         password: ${password}
       Please change these details after initial login.

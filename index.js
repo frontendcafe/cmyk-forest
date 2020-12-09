@@ -1,6 +1,6 @@
 const { Keystone } = require('@keystonejs/keystone');
 const { PasswordAuthStrategy } = require('@keystonejs/auth-password');
-const { Text, Checkbox, Password } = require('@keystonejs/fields');
+const { Text, Password } = require('@keystonejs/fields');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const initialiseData = require('./initial-data');
@@ -35,38 +35,27 @@ const userIsAdminOrOwner = auth => {
 
 const access = { userIsAdmin, userOwnsItem, userIsAdminOrOwner };
 
-keystone.createList('User', {
+keystone.createList('stuff', {
   fields: {
-    name: { type: Text },
+    username: {
+      type: Text
+    },
     email: {
       type: Text,
       isUnique: true,
     },
-    isAdmin: {
-      type: Checkbox,
-      // Field-level access controls
-      // Here, we set more restrictive field access so a non-admin cannot make themselves admin.
-      access: {
-        update: access.userIsAdmin,
-      },
-    },
     password: {
       type: Password,
     },
-  },
-  // List-level access controls
-  access: {
-    read: access.userIsAdminOrOwner,
-    update: access.userIsAdminOrOwner,
-    create: access.userIsAdmin,
-    delete: access.userIsAdmin,
-    auth: true,
+    discord_id: {
+      type: Text
+    }
   },
 });
 
 const authStrategy = keystone.createAuthStrategy({
   type: PasswordAuthStrategy,
-  list: 'User',
+  list: 'stuff',
 });
 
 module.exports = {
