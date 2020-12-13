@@ -1,38 +1,40 @@
+require("dotenv").config();
+
 module.exports = {
   development: {
-    client: 'postgresql',
-    connection: 'postgres://localhost/cmyk_panel'
+    client: "postgresql",
+    connection: process.env.DB_URL,
   },
 
   staging: {
-    client: 'postgresql',
+    client: "postgresql",
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: "my_db",
+      user: "username",
+      password: "password",
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      tableName: "knex_migrations",
+    },
   },
 
   production: {
-    client: 'postgresql',
+    client: "postgresql",
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: "my_db",
+      user: "username",
+      password: "password",
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
+      tableName: "knex_migrations",
+    },
+  },
 };
