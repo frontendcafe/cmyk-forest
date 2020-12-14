@@ -8,7 +8,6 @@ const Users = (keystone) => {
             },
             email: {
                 type: Text,
-                isUnique: true,
             },
             role: {
                 type: Text,
@@ -18,16 +17,17 @@ const Users = (keystone) => {
                 isMultiline: true,
             },
             available_time: {
-                type: Text,
+                type: Select,
+                options: "2, 4, 6, 8, 10, 12",
             },
             experience: {
-                type: Text,
+                type: Checkbox,
             },
             github: {
-                type: Text,
+                type: Url,
             },
             linkedin: {
-                type: Text,
+                type: Url,
             },
             discord_id: {
                 type: Text,
@@ -48,3 +48,4 @@ module.exports = Users;
 
 // Documentation on field types :
 // https://www.keystonejs.com/blog/field-types
+// https://www.keystonejs.com/keystonejs/fields/#fields
