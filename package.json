@@ -25,7 +25,19 @@
     "@keystonejs/keystone": "^17.1.1",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "knex": "^0.21.12",
-    "prettier": "^2.2.1"
+    "knex": "^0.21.12"
+  },
+  "devDependencies": {
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
