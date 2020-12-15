@@ -1,17 +1,17 @@
-const { Text } = require('@keystonejs/fields');
+const { Text } = require("@keystonejs/fields");
 
 const FAQ = (keystone) => {
-  keystone.createList('faq', {
+  keystone.createList("faq", {
     fields: {
       question: {
-        type: Text
+        type: Text,
       },
       answer: {
         type: Text,
-        isMultiline: true
-      }
-    }
-  })
-}
+        isMultiline: true,
+      },
+    },
+  });
+};
 
-module.exports = FAQ
+module.exports = FAQ;
