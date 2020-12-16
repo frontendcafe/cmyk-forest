@@ -21,7 +21,8 @@ const ProjectDetails = (keystone) => {
                 isUnique: true
             },
             technical_description: {
-                type: Text
+                type: Text,
+                isMultiline: true
             }
         },
 
