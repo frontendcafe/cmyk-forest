@@ -4,6 +4,7 @@ const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
 const loadLists = require("./lists");
+const { NextApp } = require("@keystonejs/app-next");
 require("dotenv").config();
 
 const { KnexAdapter: Adapter } = require("@keystonejs/adapter-knex");
@@ -53,5 +54,7 @@ module.exports = {
       enableDefaultRoute: true,
       authStrategy,
     }),
+    new NextApp({ dir: "app" }),
   ],
+  distDir,
 };
