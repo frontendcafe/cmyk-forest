@@ -1,0 +1,18 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "autoprefixer": "^9",
+    "next": "10.0.3",
+    "postcss": "^7",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  }
+}
