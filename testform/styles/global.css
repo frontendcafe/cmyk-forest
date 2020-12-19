@@ -1,3 +1,4 @@
+
 #sidebar {
   width: 379px;
   height: 105vh;
@@ -41,7 +42,7 @@ button {
 }
 
 #mosaic {
-    height: 50vh;
+    height: 55vh;
     background-image: url(../assets/img/logo.png);
     background-repeat: repeat;
     background-size: 34px;
@@ -50,4 +51,8 @@ button {
 
 #containerflex {
     width: 100%;
+}
+
+#successcontainer {
+    width: 48.813rem;
 }
