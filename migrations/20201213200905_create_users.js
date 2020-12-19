@@ -9,7 +9,7 @@ exports.up = function (knex) {
         table.string("full_name");
         table.string("email");
         table.string("role");
-        table.string("skills");
+        table.text("skills");
         table.integer("available_time");
         table.boolean("experience");
         table.string("github");
