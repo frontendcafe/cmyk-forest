@@ -1,6 +1,6 @@
 #sidebar {
   width: 379px;
-  height: 100vh;
+  height: 105vh;
   background: linear-gradient(0deg, #da7c94 0%, #d97991 57.81%, #cb496a 100%);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
@@ -32,10 +32,22 @@ textarea {
 }
 
 #freetime {
-    height: 2.862rem;
+    width: 17.063rem;
 }
 
 button {
     height:2.813rem;
     background: #D66E89;
+}
+
+#mosaic {
+    height: 50vh;
+    background-image: url(../assets/img/logo.png);
+    background-repeat: repeat;
+    background-size: 34px;
+    opacity: 0.3;
+}
+
+#containerflex {
+    width: 100%;
 }
