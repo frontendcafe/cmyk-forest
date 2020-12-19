@@ -6,8 +6,15 @@
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+#sidebarblue {
+    width: 379px;
+    height: 105vh;
+    background: linear-gradient(180deg, #55A4D1 0%, #55A4D1 57.81%, #1472A8 100%);
+box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
 h1 {
-  font-family: "Archivo Black";
+  font-family: "Archivo Black",sans-serif;
   font-style: normal;
   font-weight: normal;
   /* font-size: 3.5rem;
@@ -16,9 +23,27 @@ h1 {
   /* margin: 10.563rem 0 0 2.25rem; */
 }
 
+h6 {
+    font-family: "Archivo Black", sans-serif;
+    width: 44.563rem;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+}
+
+.textcontainer {
+    width: 39.625rem;
+}
 a {
   font-family: "Open Sans", sans-serif;
   color: #D96BA6;
+  font-size: 1.125rem;
+}
+
+.anchorblue {
+    font-family: "Open Sans", sans-serif;
+    color: #55A4D1; 
   font-size: 1.125rem;
 }
 
