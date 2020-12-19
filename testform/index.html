@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form CMYK</title>
+    <link href="/tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="">
+      <nav class="">
+        <ul class="float-right space-x-10 mr-4 mt-2">
+          <li class="inline cursor-pointer font-bold">
+            <a> Register </a>
+          </li>
+          <li class="inline cursor-pointer font-bold"><a>FrontEnd Café</a></li>
+          <li class="inline cursor-pointer font-bold"><a>F.A.Q</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <!-- SIDEBAR -->
+      <section class="float-left" id="sidebar">
+        <div class="mt-11 ml-6" id="frontendlogo">
+          <img src="./assets/img/vector2.png" alt="" class="ml-8" />
+          <img src="./assets/img/vector.png" alt="" />
+        </div>
+        <h1 class="mt-40 ml-9">WELCOME TO <br />CMYK</h1>
+      </section>
+
+      <img src="./assets/img/CMYK.png" alt="" class="" />
+      <div class="p-10">
+        <form class="grid grid-cols-2 gap-x-8 gap-y-4">
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Full Name"
+            class="col-auto"
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="E-mail adress"
+            class="col-auto"
+          />
+          <select>
+            <option value="" disabled>-- Select an option --</option>
+            <option>Participant</option>
+            <option>Leader</option>
+          </select>
+          <select>
+            <option value="" disabled>-- Select an option --</option>
+            <option>Level 1 (HTML, CSS, JAVASCRIPT)</option>
+            <option>Level 2 (Level 1 + React)</option>
+          </select>
+          <textarea placeholder="Technologies"></textarea>
+          <select id="freetime">
+            <option value="" disabled>-- Select an option --</option>
+            <option>Value 1</option>
+            <option>Value 2</option>
+            <option>Value 3</option>
+            <option>Value 4</option>
+          </select>
+          <div class="col-span-1">
+            <label class="">Experience</label> <input type="radio" value="y" /> Yes
+            <input type="radio" value="n" /> No
+          </div>
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Github"
+            class="col-auto"
+          />
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="LinkedIn"
+            class="col-auto"
+          />
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Discord"
+            class="col-auto"
+          />
+          <textarea placeholder="Any questions? "></textarea>
+          <textarea placeholder="Tell us something about yourself"></textarea>
+<button class="rounded-br-2xl text-white">JOIN</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
