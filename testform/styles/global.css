@@ -1,7 +1,7 @@
 #sidebar {
   width: 379px;
   height: 105vh;
-  background: linear-gradient(0deg, #da7c94 0%, #d97991 57.81%, #cb496a 100%);
+  background: linear-gradient(0deg, #da7c94 0%, #d97991 50.81%, #cb496a 100%);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -9,8 +9,8 @@ h1 {
   font-family: "Archivo Black";
   font-style: normal;
   font-weight: normal;
-  font-size: 3.5rem;
-  line-height: 61px;
+  /* font-size: 3.5rem;
+  line-height: 61px; */
   color: #fff;
   /* margin: 10.563rem 0 0 2.25rem; */
 }
