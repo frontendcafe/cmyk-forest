@@ -1,7 +1,17 @@
+import Link from "next/link";
+
 const Navbar = () => {
   return (
     <>
-      <h1>Navbar WIP</h1>
+      <Link href="/">
+        <a>Register</a>
+      </Link>
+      <Link href="/frontendcafe">
+        <a>FrontEnd Café</a>
+      </Link>
+      <Link href="/faq">
+        <a>FAQ</a>
+      </Link>
     </>
   );
 };
