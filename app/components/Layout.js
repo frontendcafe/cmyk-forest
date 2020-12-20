@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
       <div className="flex flex-col">
         {children}
         <Navbar />
-        <Sidebar />
       </div>
     </>
   );
