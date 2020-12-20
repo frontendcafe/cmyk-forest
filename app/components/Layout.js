@@ -10,7 +10,6 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col">
-        <h1>Layout</h1>
         {children}
         <Navbar />
         <Sidebar />

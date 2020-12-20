@@ -1,9 +1,12 @@
 import Layout from "../components/Layout";
+import Form from "../components/Form";
 
 export default function Home() {
   return (
-    <Layout>
-      <h1>Register WIP</h1>
-    </Layout>
+    <>
+      <Layout>
+      </Layout>
+      <Form />
+    </>
   );
 }

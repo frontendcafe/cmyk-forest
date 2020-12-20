@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* ID PROP PARA SIDEBAR */
 #sidebar {
   width: 379px;
   height: 105vh;
