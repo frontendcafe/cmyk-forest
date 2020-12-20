@@ -3,7 +3,7 @@ exports.up = function (knex) {
         table.increments()
         // table.foreign("group_id").references("id").inTable("groups");
         table.string('name');
-        table.text('project_description');
+        table.text('product_details');
         table.string('board_link');
         table.string('css_framework');
         table.string('repository_link');

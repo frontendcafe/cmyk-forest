@@ -6,7 +6,7 @@ const ProjectDetails = (keystone) => {
             name: {
                 type: Text
             },
-            project_description: {
+            product_description: {
                 type: Text,
                 isMultiline: true
             },
