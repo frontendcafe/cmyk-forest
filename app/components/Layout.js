@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "./ui/Navbar";
 import Sidebar from "./ui/Sidebar";
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   return (
     <>
       <Head>
@@ -10,8 +10,8 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col">
-        {children}
-        <Navbar />
+        {props.children}
+        <Navbar className={props.className} />
       </div>
     </>
   );

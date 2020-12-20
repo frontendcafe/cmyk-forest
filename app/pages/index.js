@@ -6,11 +6,10 @@ export default function Home() {
   return (
     <>
       <Layout></Layout>
-      <Sidebar 
-      id="sidebar"
-      title="WELCOME TO CMYK"
-      />
-      <Form />
+      <div className="flex">
+        <Sidebar id="sidebar" title="WELCOME TO CMYK" />
+        <Form />
+      </div>
     </>
   );
 }

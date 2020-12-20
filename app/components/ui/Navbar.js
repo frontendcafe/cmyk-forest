@@ -1,23 +1,25 @@
 import Link from "next/link";
 
-const Navbar = ({ className }) => {
+const Navbar = (props) => {
+  console.log(props.className);
+
   return (
     <>
       <nav>
         <ul className="space-x-10 mr-4 mt-2 flex justify-end">
           <li className="inline cursor-pointer font-bold">
-            <Link href="/" className={className}>
-              Register
+            <Link href="/">
+              <a className={props.className}>Register</a>
             </Link>
           </li>
           <li className="inline cursor-pointer font-bold">
-            <Link href="https://frontend.cafe/" className={className}>
-              FrontEnd Café
+            <Link href="https://frontend.cafe/">
+              <a className={props.className}>FrontEnd Café</a>
             </Link>
           </li>
           <li className="inline cursor-pointer font-bold">
-            <Link href="/faq" className={className}>
-              F.A.Q
+            <Link href="/faq">
+              <a className={props.className}>F.A.Q</a>
             </Link>
           </li>
         </ul>
