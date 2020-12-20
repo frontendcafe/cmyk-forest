@@ -9,10 +9,12 @@ const Layout = ({ children }) => {
         <title>CMYK Panel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Layout</h1>
-      {children}
-      <Sidebar />
-      <Navbar />
+      <div className="flex flex-col">
+        <h1>Layout</h1>
+        {children}
+        <Navbar />
+        <Sidebar />
+      </div>
     </>
   );
 };
