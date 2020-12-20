@@ -6,7 +6,7 @@ const Navbar = () => {
       <Link href="/">
         <a>Register</a>
       </Link>
-      <Link href="/frontendcafe">
+      <Link href="https://frontend.cafe/">
         <a>FrontEnd Café</a>
       </Link>
       <Link href="/faq">
