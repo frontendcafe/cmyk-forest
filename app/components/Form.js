@@ -1,4 +1,6 @@
 import Button from "./ui/Button";
+import Input from "./ui/Input";
+import Dropdown from "./ui/Dropdown";
 
 const Form = () => {
   return (
@@ -9,34 +11,26 @@ const Form = () => {
       >
         <img src="./assets/img/CMYK.png" alt="" class="w-72" />
         <form class="grid grid-cols-2 gap-x-8 gap-y-4">
-          <input
+          <Input
             type="text"
             name="fullname"
             id="fullname"
             placeholder="Full Name"
-            class="col-auto p-1 pl-3 h-9"
           />
-          <input
+          <Input
             type="email"
             name="email"
             id="email"
             placeholder="E-mail adress"
-            class="col-auto p-1 pl-3 h-9"
           />
-          <select class="col-auto p-1 pl-3 h-9">
-            <option value="" disabled selected>
-              Role
-            </option>
-            <option>Participant</option>
-            <option>Leader</option>
-          </select>
-          <select class="col-auto p-1 pl-3 h-9">
-            <option value="" disabled selected>
-              Level
-            </option>
-            <option>Level 1 (HTML, CSS, JAVASCRIPT)</option>
-            <option>Level 2 (Level 1 + React)</option>
-          </select>
+          <Dropdown title="Role" options={["Participant", "Leader"]} />
+          <Dropdown
+            title="Level"
+            options={[
+              "Level 1 (HTML, CSS, JAVASCRIPT)",
+              "Level 2 (Level 1 + React)",
+            ]}
+          />
           <textarea
             class="col-auto p-1 pl-3"
             placeholder="Technologies"
