@@ -1,8 +1,16 @@
-const { Text, Select, Checkbox, Url } = require("@keystonejs/fields");
+const { Text, Select, Checkbox, Url, Relationship } = require("@keystonejs/fields");
 
 const Users = (keystone) => {
     return keystone.createList("user", {
         fields: {
+            group: {
+                type: Relationship,
+                ref: 'group'
+            },
+            project: {
+                type: Relationship,
+                ref: 'project'
+            },
             full_name: {
                 type: Text,
             },
