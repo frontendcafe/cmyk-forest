@@ -1,7 +1,7 @@
-const { Text } = require("@keystonejs/fields");
+const { Text, Select, Checkbox, Url } = require("@keystonejs/fields");
 
 const Users = (keystone) => {
-    return keystone.createList("users", {
+    return keystone.createList("user", {
         fields: {
             full_name: {
                 type: Text,
@@ -19,6 +19,7 @@ const Users = (keystone) => {
             available_time: {
                 type: Select,
                 options: "2, 4, 6, 8, 10, 12",
+                dataType: "string"
             },
             experience: {
                 type: Checkbox,
@@ -45,7 +46,3 @@ const Users = (keystone) => {
 };
 
 module.exports = Users;
-
-// Documentation on field types :
-// https://www.keystonejs.com/blog/field-types
-// https://www.keystonejs.com/keystonejs/fields/#fields
