@@ -69,13 +69,13 @@ button {
     background: #D66E89;
 }
 
-/* #mosaic {
+#mosaic {
     height: 55vh;
-    background-image: url(../assets/img/logo.png);
+    background-image: url(../public/assets/img/logo.png);
     background-repeat: repeat;
     background-size: 34px;
     opacity: 0.3;
-} */
+}
 
 #containerflex {
     width: 100%;
