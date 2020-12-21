@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const Navbar = (props) => {
-  console.log(props.className);
 
   return (
     <>
