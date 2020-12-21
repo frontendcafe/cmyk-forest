@@ -5,7 +5,7 @@ const Input = (props) => {
             name={props.name}
             id={props.id}
             placeholder={props.placeholder}
-            class="col-auto p-1 pl-3 h-9"
+            className="col-auto p-1 pl-3 h-9"
           />
     )
 }
