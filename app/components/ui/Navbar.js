@@ -4,7 +4,7 @@ const Navbar = (props) => {
   return (
     <>
       <nav>
-        <ul className="space-x-10 mr-4 mt-2 flex justify-end">
+        <ul className="space-x-10 mr-12 mt-2 flex justify-end">
           <li className="inline cursor-pointer font-bold">
             <Link href="/">
               <a className={props.className}>Register</a>

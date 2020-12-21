@@ -10,10 +10,10 @@ const Faq = () => {
           id="sidebarblue"
           title="FAQ"
           text={
-            <p className="text-white p-6">
-              If you have any other questions you can always find us on&nsbp;
+            <p className="text-white ml-10 mr-10  mt-10 mb-10 ">
+              If you have any other questions you can always find us on
               <a
-                className="text-white font-bold text-base"
+                className="text-white font-bold text-base ml-1"
                 href="https://discord.com/invite/3GC6TJd"
                 rel="noopener noreferrer"
               >
