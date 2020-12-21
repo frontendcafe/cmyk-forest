@@ -11,7 +11,7 @@ const Faq = () => {
           title="FAQ"
           text={
             <p className="text-white p-6">
-              If you have any other questions you can always find us on
+              If you have any other questions you can always find us on&nsbp;
               <a
                 className="text-white font-bold text-base"
                 href="https://discord.com/invite/3GC6TJd"

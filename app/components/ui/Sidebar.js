@@ -6,7 +6,7 @@ const Sidebar = (props) => {
             <img src="./assets/img/vector2.png" alt="" className="ml-8" />
             <img src="./assets/img/vector.png" alt="" />
           </div>
-          <h1 className="mt-12 ml-9 text-6xl">{props.title}</h1>
+          <h1 className="mt-12 ml-9 text-5xl">{props.title}</h1>
           {props.text}
           <div id="mosaic" className="mt-10"></div>
         </section>
