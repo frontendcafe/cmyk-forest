@@ -47,31 +47,35 @@ export default function Home() {
             onSubmit={formik.handleSubmit}
             className="grid grid-cols-2 gap-x-8 gap-y-4"
           >
-            <input
-              type="text"
-              id="fullname"
-              placeholder="Full Name"
-              value={formik.values.fullname}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.fullname && formik.errors.fullname && (
-              <div className="my-2 bg-red-100 border-l-2 border-red-500 text-red-700 p-2 mb-3">
-                <p className="font-bold text-sm "> {formik.errors.fullname} </p>
-              </div>
+            {formik.touched.fullname && formik.errors.fullname ? (
+              <input
+                className="bg-red-100 border-l-2 border-red-700"
+                placeholder={formik.errors.fullname}
+              />
+            ) : (
+              <input
+                type="text"
+                id="fullname"
+                placeholder="Full Name"
+                value={formik.values.fullname}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
             )}
-            <input
-              type="email"
-              id="email"
-              placeholder="E-mail adress"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.email && formik.errors.email && (
-              <div className="my-2 bg-red-100 border-l-2 border-red-500 text-red-700 p-2 mb-3">
-                <p className="font-bold text-sm "> {formik.errors.email} </p>
-              </div>
+            {formik.touched.email && formik.errors.email ? (
+              <input
+                className="bg-red-100 border-l-2 border-red-700"
+                placeholder={formik.errors.email}
+              />
+            ) : (
+              <input
+                type="email"
+                id="email"
+                placeholder="E-mail adress"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
             )}
             <Dropdown
               title="Role"
@@ -88,20 +92,20 @@ export default function Home() {
                 "Level 2 (Level 1 + React)",
               ]}
             />
-            <textarea
-              placeholder="Technologies"
-              className="col-auto p-1 pl-3"
-              id="technologies"
-              value={formik.values.technologies}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.technologies && formik.errors.technologies && (
-              <div className="my-2 bg-red-100 border-l-2 border-red-500 text-red-700 p-2 mb-3">
-                <p className="font-bold text-sm ">
-                  {formik.errors.technologies}
-                </p>
-              </div>
+            {formik.touched.technologies && formik.errors.technologies ? (
+              <textarea
+                className="bg-red-100 border-l-2 border-red-700"
+                placeholder={formik.errors.technologies}
+              />
+            ) : (
+              <textarea
+                placeholder="Technologies"
+                className="col-auto p-1 pl-3"
+                id="technologies"
+                value={formik.values.technologies}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
             )}
             <div>
               <Dropdown
@@ -117,45 +121,51 @@ export default function Home() {
                 <Input type="radio" value="No" />
               </div>
             </div>
-            <input
-              type="url"
-              name="github"
-              id="github"
-              placeholder="Github"
-              value={formik.values.github}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.github && formik.errors.github && (
-              <div className="my-2 bg-red-100 border-l-2 border-red-500 text-red-700 p-2 mb-3">
-                <p className="font-bold text-sm "> {formik.errors.github} </p>
-              </div>
+            {formik.touched.github && formik.errors.github ? (
+              <input
+                className="bg-red-100 border-l-2 border-red-700"
+                placeholder={formik.errors.github}
+              />
+            ) : (
+              <input
+                type="url"
+                name="github"
+                id="github"
+                placeholder="Github"
+                value={formik.values.github}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
             )}
-            <input
-              type="url"
-              id="linkedin"
-              placeholder="LinkedIn"
-              value={formik.values.linkedin}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.linkedin && formik.errors.linkedin && (
-              <div className="my-2 bg-red-100 border-l-2 border-red-500 text-red-700 p-2 mb-3">
-                <p className="font-bold text-sm "> {formik.errors.linkedin} </p>
-              </div>
+            {formik.touched.linkedin && formik.errors.linkedin ? (
+              <input
+                className="bg-red-100 border-l-2 border-red-700"
+                placeholder={formik.errors.linkedin}
+              />
+            ) : (
+              <input
+                type="url"
+                id="linkedin"
+                placeholder="LinkedIn"
+                value={formik.values.linkedin}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
             )}
-            <input
-              type="text"
-              id="discord"
-              placeholder="Discord"
-              value={formik.values.discord}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.discord && formik.errors.discord && (
-              <div className="my-2 bg-red-100 border-l-2 border-red-500 text-red-700 p-2 mb-3">
-                <p className="font-bold text-sm "> {formik.errors.discord} </p>
-              </div>
+            {formik.touched.discord && formik.errors.discord ? (
+              <input
+                className="bg-red-100 border-l-2 border-red-700"
+                placeholder={formik.errors.discord}
+              />
+            ) : (
+              <input
+                type="text"
+                id="discord"
+                placeholder="Discord"
+                value={formik.values.discord}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
             )}
             <textarea
               placeholder="Any questions?"
