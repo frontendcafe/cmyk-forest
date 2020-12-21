@@ -13,7 +13,7 @@ export default function Home() {
       <div className="flex">
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <section
-          className="p-7 ml-24 mt-5 flex flex-col items-center ml-8"
+          className=" ml-24 mt-5 flex flex-col items-center ml-8"
           id="formcontainer"
         >
           <img src="./assets/img/CMYK.png" alt="" className="w-72" />
@@ -38,7 +38,10 @@ export default function Home() {
                 "Level 2 (Level 1 + React)",
               ]}
             />
-            <TextArea placeholder="Technologies" className="col-auto p-1 pl-3" />
+            <TextArea
+              placeholder="Technologies"
+              className="col-auto p-1 pl-3"
+            />
             <div>
               <Dropdown
                 id="freetime"
