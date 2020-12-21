@@ -4,9 +4,7 @@ const Dropdown = (props) => {
 
   return (
     <select className="col-auto p-1 pl-3 h-9" id={props.id}>
-      <option value="" disabled selected>
-        {props.title}
-      </option>
+      <option value="" disabled selected> {props.title} </option>
       {selectOptions}
     </select>
   );

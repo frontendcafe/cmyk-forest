@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Navbar from "./ui/Navbar";
-import Sidebar from "./ui/Sidebar";
 
 const Layout = (props) => {
   return (
@@ -8,7 +7,7 @@ const Layout = (props) => {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CMYK Panel</title>
+        <title>CMYK</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
