@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }) {
     </ApolloProvider>
 
   )
-
 }
 
-export default MyApp
+export default MyApp;
