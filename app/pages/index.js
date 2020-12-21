@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import Sidebar from "../components/ui/Sidebar";
-
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
@@ -13,7 +12,7 @@ export default function Home() {
       <div className="flex">
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <section
-          className="p-7 ml-24 mt-5 flex flex-col items-center ml-8"
+          className="p-7 ml-24 mt-5 flex flex-col items-center"
           id="formcontainer"
         >
           <img src="./assets/img/CMYK.png" alt="" className="w-72" />
@@ -38,7 +37,10 @@ export default function Home() {
                 "Level 2 (Level 1 + React)",
               ]}
             />
-            <TextArea placeholder="Technologies" className="col-auto p-1 pl-3" />
+            <TextArea
+              placeholder="Technologies"
+              className="col-auto p-1 pl-3"
+            />
             <div>
               <Dropdown
                 id="freetime"
