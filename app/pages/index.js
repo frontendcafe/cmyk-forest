@@ -49,7 +49,7 @@ export default function Home() {
           >
             {formik.touched.fullname && formik.errors.fullname ? (
               <input
-                className="bg-red-100 border-l-2 border-red-700"
+                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.fullname}
               />
             ) : (
@@ -64,7 +64,7 @@ export default function Home() {
             )}
             {formik.touched.email && formik.errors.email ? (
               <input
-                className="bg-red-100 border-l-2 border-red-700"
+                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.email}
               />
             ) : (
@@ -94,7 +94,7 @@ export default function Home() {
             />
             {formik.touched.technologies && formik.errors.technologies ? (
               <textarea
-                className="bg-red-100 border-l-2 border-red-700"
+                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.technologies}
               />
             ) : (
@@ -123,7 +123,7 @@ export default function Home() {
             </div>
             {formik.touched.github && formik.errors.github ? (
               <input
-                className="bg-red-100 border-l-2 border-red-700"
+                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.github}
               />
             ) : (
@@ -139,7 +139,7 @@ export default function Home() {
             )}
             {formik.touched.linkedin && formik.errors.linkedin ? (
               <input
-                className="bg-red-100 border-l-2 border-red-700"
+                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.linkedin}
               />
             ) : (
@@ -154,7 +154,7 @@ export default function Home() {
             )}
             {formik.touched.discord && formik.errors.discord ? (
               <input
-                className="bg-red-100 border-l-2 border-red-700"
+                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.discord}
               />
             ) : (
