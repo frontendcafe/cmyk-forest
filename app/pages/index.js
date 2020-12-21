@@ -4,11 +4,28 @@ import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
 import TextArea from "../components/ui/TextArea";
+import { useFormik } from "formik";
 
 export default function Home() {
+  const formik = useFormik({
+    initialValues: {
+      fullname: "",
+      email: "",
+      role: "",
+      technologies: "",
+      github: "",
+      linkedin: "",
+      discord: "",
+      questions: "",
+      aboutYourself: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   return (
     <>
-      <Layout></Layout>
+      <Layout />
       <div className="flex">
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <section
@@ -16,20 +33,31 @@ export default function Home() {
           id="formcontainer"
         >
           <img src="./assets/img/CMYK.png" alt="" className="w-72" />
-          <form className="grid grid-cols-2 gap-x-8 gap-y-4">
-            <Input
+          <form
+            onSubmit={formik.handleSubmit}
+            className="grid grid-cols-2 gap-x-8 gap-y-4"
+          >
+            <input
               type="text"
-              name="fullname"
               id="fullname"
               placeholder="Full Name"
+              value={formik.values.fullname}
+              onChange={formik.handleChange}
             />
-            <Input
+            <input
               type="email"
-              name="email"
               id="email"
               placeholder="E-mail adress"
+              value={formik.values.email}
+              onChange={formik.handleChange}
             />
-            <Dropdown title="Role" options={["Participant", "Leader"]} />
+            <Dropdown
+              title="Role"
+              options={["Participant", "Leader"]}
+              id="role"
+              value={formik.values.role}
+              onChange={formik.handleChange}
+            />
             <Dropdown
               title="Level"
               options={[
@@ -37,9 +65,12 @@ export default function Home() {
                 "Level 2 (Level 1 + React)",
               ]}
             />
-            <TextArea
+            <textarea
               placeholder="Technologies"
               className="col-auto p-1 pl-3"
+              id="technologies"
+              value={formik.values.technologies}
+              onChange={formik.handleChange}
             />
             <div>
               <Dropdown
@@ -49,32 +80,49 @@ export default function Home() {
               />
               <div className="flex place-content-between mt-3">
                 <label className="justify-self-start">Experience</label>
-                <Input type="radio" /> Yes
-                <Input type="radio" /> No
+                <label htmlFor="Yes">Yes</label>
+                <Input type="radio" value="Yes" />
+                <label htmlFor="No">No</label>
+                <Input type="radio" value="No" />
               </div>
             </div>
-            <Input type="url" name="github" id="github" placeholder="Github" />
-            <Input
+            <input
               type="url"
-              name="linkedin"
+              name="github"
+              id="github"
+              placeholder="Github"
+              value={formik.values.github}
+              onChange={formik.handleChange}
+            />
+            <input
+              type="url"
               id="linkedin"
               placeholder="LinkedIn"
+              value={formik.values.linkedin}
+              onChange={formik.handleChange}
             />
-            <Input
+            <input
               type="text"
-              name="discord"
               id="discord"
               placeholder="Discord"
+              value={formik.values.discord}
+              onChange={formik.handleChange}
             />
-            <TextArea
+            <textarea
               placeholder="Any questions?"
               className="col-auto p-1 pl-3"
+              id="questions"
+              value={formik.values.questions}
+              onChange={formik.handleChange}
             />
-            <TextArea
+            <textarea
               className="-mt-9 col-auto p-1 pl-3"
               placeholder="Tell us something about yourself"
+              id="aboutYourself"
+              value={formik.values.aboutYourself}
+              onChange={formik.handleChange}
             />
-            <Button text="JOIN" />
+            <Button type="submit" text="JOIN" />
           </form>
         </section>
       </div>
