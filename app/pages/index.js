@@ -13,7 +13,7 @@ export default function Home() {
       <div className="flex">
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <section
-          className=" ml-24 mt-5 flex flex-col items-center ml-8"
+          className="ml-40 mt-5 flex flex-col items-center"
           id="formcontainer"
         >
           <img src="./assets/img/CMYK.png" alt="" className="w-72" />
