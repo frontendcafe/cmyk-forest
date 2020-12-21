@@ -8,7 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-client": "^2.6.10",
     "autoprefixer": "^9",
+    "graphql": "^15.4.0",
     "next": "10.0.3",
     "node-fetch": "^2.6.1",
     "postcss": "^7",
