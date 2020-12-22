@@ -1,31 +1,27 @@
 import Layout from "../components/Layout";
 import Sidebar from "../components/ui/Sidebar";
-import { gql } from '@apollo/client'
-import { useQuery } from '@apollo/react-hooks'
-
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/react-hooks";
 
 const QUERY = gql`
-query allFaqs {
-    allFaqs{
-        id
+  query allFaqs {
+    allFaqs {
+      id
       question
       answer
     }
-  } 
-    `
-
-
+  }
+`;
 
 const Faq = () => {
-  const { data, loading } = useQuery(QUERY)
-
+  const { data, loading } = useQuery(QUERY);
 
   return (
     <>
-      <Layout className="anchorblue"></Layout>
+      <Layout className="anchorBlue" />
       <div className="flex">
         <Sidebar
-          id="sidebarblue"
+          id="sidebarBlue"
           title="FAQ"
           text={
             <p className="text-white ml-10 mr-10  mt-10 mb-10 ">
@@ -41,17 +37,13 @@ const Faq = () => {
           }
         />
         <div className="pl-20 mt-2 pr-20 ">
-          {data && data.allFaqs.map(faq => (
-            <>
-              <h1 className="text-black text-xl mt-10">
-                {faq.question}
-              </h1>
-              <p className="mt-3">
-                {faq.answer}
-              </p>
-            </>
-          ))}
-
+          {data &&
+            data.allFaqs.map((faq) => (
+              <>
+                <h1 className="text-black text-xl mt-10">{faq.question}</h1>
+                <p className="mt-3">{faq.answer}</p>
+              </>
+            ))}
         </div>
       </div>
     </>

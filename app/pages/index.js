@@ -84,7 +84,7 @@ export default function Home() {
           className="ml-40 mt-5 flex flex-col items-center"
           id="formcontainer"
         >
-          <img src="./assets/img/CMYK.png" alt="" className="w-72" />
+          <img src="./assets/img/CMYK.png" alt="cmyk" className="w-72" />
           <form
             onSubmit={formik.handleSubmit}
             className="grid grid-cols-2 gap-x-8 gap-y-4"
@@ -227,7 +227,7 @@ export default function Home() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            <Button type="submit" text="JOIN" />
+            <Button type="submit" text="JOIN" id="buttonRed" />
           </form>
         </section>
       </div>
