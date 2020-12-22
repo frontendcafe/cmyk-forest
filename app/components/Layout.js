@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "./ui/Navbar";
 
-const Layout = (props) => {
+const Layout = ({ children, className }) => {
   return (
     <>
       <Head>
@@ -20,8 +20,8 @@ const Layout = (props) => {
         />
       </Head>
       <div className="flex flex-col">
-        {props.children}
-        <Navbar className={props.className} />
+        {children}
+        <Navbar className={className} />
       </div>
     </>
   );
