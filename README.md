@@ -22,3 +22,17 @@ This example has no front-end application but you can build your own using the G
 6. createList passing the same string we passed in migrations (in this case 'faq')
 7. import in lists/index.js
 8. call it inside function loadLists in lists/index.js
+
+# Next.js
+
+To run this project first run `npm install`.
+
+Run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:4000](http://localhost:4000) with your browser to see the result.
