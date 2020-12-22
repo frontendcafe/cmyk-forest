@@ -39,7 +39,11 @@ export default function Home() {
       <div className="flex">
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <section
-          className="p-7 ml-24 mt-5 flex flex-col items-center"
+
+          
+
+          className="ml-40 mt-5 flex flex-col items-center"
+
           id="formcontainer"
         >
           <img src="./assets/img/CMYK.png" alt="" className="w-72" />
@@ -92,6 +96,7 @@ export default function Home() {
                 "Level 2 (Level 1 + React)",
               ]}
             />
+
             {formik.touched.technologies && formik.errors.technologies ? (
               <textarea
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
@@ -107,6 +112,7 @@ export default function Home() {
                 onBlur={formik.handleBlur}
               />
             )}
+
             <div>
               <Dropdown
                 id="freetime"
