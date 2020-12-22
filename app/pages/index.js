@@ -11,15 +11,18 @@ const QUERY = gql`
   }
 `;
 const Index = () => {
-  const { data } = useQuery(QUERY);
+  const { data, loading } = useQuery(QUERY);
+  if (loading) {
+    return 'cargando...'
+  }
 
   return (
     <>
-      {data && data.allUsers.length > 20 ? (
+      {data && data.allUsers.length > 10 ? (
         <RegistrationClosedForm />
       ) : (
-        <MainForm />
-      )}
+          <MainForm />
+        )}
     </>
   );
 };
