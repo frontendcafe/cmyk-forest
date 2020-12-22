@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql } from "@apollo/client";
 import { useMutation } from "@apollo/react-hooks";
+import Swal from 'sweetalert2'
 
 const CREATE_USER = gql`
   mutation createUser($data: UserCreateInput) {
@@ -51,6 +52,9 @@ const MainForm = () => {
         discord_id,
         questions,
         about,
+        available_time,
+        role,
+        experience
       } = values;
       try {
         createUser({
@@ -65,9 +69,18 @@ const MainForm = () => {
               discord_id,
               questions,
               about,
+              available_time,
+              role,
+              experience
             },
           },
         });
+        Swal.fire({
+          title: 'Form sent!',
+          text: "Don't forget to check on Discord",
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
       } catch (error) {
         console.error(error);
       }
@@ -93,38 +106,48 @@ const MainForm = () => {
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.full_name}
-              />
-            ) : (
-              <input
-                type="text"
-                id="full_name"
-                placeholder="Full Name"
                 value={formik.values.full_name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                type="text"
+                id="full_name"
               />
-            )}
+            ) : (
+                <input
+                  type="text"
+                  id="full_name"
+                  placeholder="Full Name"
+                  value={formik.values.full_name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             {formik.touched.email && formik.errors.email ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.email}
-              />
-            ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                type="email"
+                id="email"
               />
-            )}
+            ) : (
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="E-mail adress"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <Dropdown
               title="Role"
               options={["Participant", "Leader"]}
               id="role"
               value={formik.values.role}
-              onChange={formik.handleChange}
+              onChangeHandler={formik.handleChange}
               onBlur={formik.handleBlur}
             />
             <Dropdown
@@ -139,23 +162,31 @@ const MainForm = () => {
               <textarea
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.skills}
-              />
-            ) : (
-              <textarea
-                placeholder="Technologies"
-                className="col-auto p-1 pl-3"
                 id="skills"
                 value={formik.values.skills}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+
               />
-            )}
+            ) : (
+                <textarea
+                  placeholder="Technologies"
+                  className="col-auto p-1 pl-3"
+                  id="skills"
+                  value={formik.values.skills}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
 
             <div>
               <Dropdown
-                id="freetime"
+
+                id="available_time"
                 title="Free Time"
-                options={["Value 1", "Value 2", "Value 3", "Value 4"]}
+                options={[2, 4, 6, 8, 10, 12]}
+                value={formik.values.available_time}
+                onChangeHandler={formik.handleChange}
               />
               <div className="flex place-content-between mt-3">
                 <label className="justify-self-start">Experience</label>
@@ -169,48 +200,64 @@ const MainForm = () => {
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.github}
-              />
-            ) : (
-              <input
+                value={formik.values.github}
                 type="url"
                 name="github"
                 id="github"
-                placeholder="Github"
-                value={formik.values.github}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-            )}
+            ) : (
+                <input
+                  type="url"
+                  name="github"
+                  id="github"
+                  placeholder="Github"
+                  value={formik.values.github}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             {formik.touched.linkedin && formik.errors.linkedin ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.linkedin}
-              />
-            ) : (
-              <input
                 type="url"
                 id="linkedin"
-                placeholder="LinkedIn"
+                placeholder={formik.errors.linkedin}
                 value={formik.values.linkedin}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-            )}
+            ) : (
+                <input
+                  type="url"
+                  id="linkedin"
+                  placeholder="LinkedIn"
+                  value={formik.values.linkedin}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             {formik.touched.discord_id && formik.errors.discord_id ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.discord_id}
-              />
-            ) : (
-              <input
-                type="text"
-                id="discord_id"
-                placeholder="Discord"
                 value={formik.values.discord_id}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                type="text"
+                id="discord_id"
               />
-            )}
+            ) : (
+                <input
+                  type="text"
+                  id="discord_id"
+                  placeholder="Discord"
+                  value={formik.values.discord_id}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <textarea
               placeholder="Any questions?"
               className="col-auto p-1 pl-3"

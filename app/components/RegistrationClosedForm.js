@@ -5,11 +5,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql } from "@apollo/client";
 import { useMutation } from "@apollo/react-hooks";
+import Swal from 'sweetalert2'
 
 const CREATE_USER = gql`
   mutation createUser($data: UserCreateInput) {
     createUser(data: $data) {
       email
+      role
     }
   }
 `;
@@ -19,6 +21,7 @@ export default function Home() {
   const formik = useFormik({
     initialValues: {
       email: "",
+      role: "Waiting"
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -35,7 +38,15 @@ export default function Home() {
             },
           },
         });
-      } catch (error) {
+        Swal.fire({
+          title: 'Form sent!',
+          text: "Don't forget to check on Discord",
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      }
+
+      catch (error) {
         console.error(error);
       }
       console.log(values);
@@ -70,15 +81,15 @@ export default function Home() {
                 placeholder={formik.errors.email}
               />
             ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="E-mail adress"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <Button type="submit" text="SUBMIT" id="buttonYellow" />
           </form>
           <p className="text-gray-500 text-sm pt-10 ">
