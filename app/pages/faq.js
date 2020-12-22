@@ -1,7 +1,25 @@
 import Layout from "../components/Layout";
 import Sidebar from "../components/ui/Sidebar";
+import { gql } from '@apollo/client'
+import { useQuery } from '@apollo/react-hooks'
+
+
+const QUERY = gql`
+query allFaqs {
+    allFaqs{
+        id
+      question
+      answer
+    }
+  } 
+    `
+
+
 
 const Faq = () => {
+  const { data, loading } = useQuery(QUERY)
+
+
   return (
     <>
       <Layout className="anchorblue"></Layout>
@@ -23,16 +41,17 @@ const Faq = () => {
           }
         />
         <div className="pl-20 mt-2 pr-20 ">
-          <h1 className="text-black text-xl mt-10">
-            Lorem ipsum dolor sit, amet klansdklnsadconsectetur adipisicing
-            elit. tatibus, minus?
-          </h1>
-          <p className="mt-3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
-            praesentium ex provident libero id inventore autem doloremque sint
-            a. Ullam odio dolorem officiis iste voluptatem error voluptatibus
-            sequi sit architecto.
-          </p>
+          {data && data.allFaqs.map(faq => (
+            <>
+              <h1 className="text-black text-xl mt-10">
+                {faq.question}
+              </h1>
+              <p className="mt-3">
+                {faq.answer}
+              </p>
+            </>
+          ))}
+
         </div>
       </div>
     </>

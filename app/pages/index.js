@@ -6,33 +6,73 @@ import Dropdown from "../components/ui/Dropdown";
 import TextArea from "../components/ui/TextArea";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { gql } from '@apollo/client'
+import { useMutation } from '@apollo/react-hooks'
 
+const CREATE_USER = gql`
+mutation createUser($data: UserCreateInput) {
+  createUser(data: $data) {
+    full_name
+    email
+  }
+}
+
+`
 export default function Home() {
+  const [createUser] = useMutation(CREATE_USER)
+
+
   const formik = useFormik({
     initialValues: {
-      fullname: "",
+      full_name: "",
       email: "",
-      technologies: "",
+      skills: "",
       github: "",
       linkedin: "",
-      discord: "",
+      discord_id: "",
       questions: "",
-      aboutYourself: "",
+      about: "",
     },
     validationSchema: Yup.object({
-      fullname: Yup.string().required("Full Name is required"),
+      full_name: Yup.string().required("Full Name is required"),
       email: Yup.string()
         .required("Email is required")
         .email("Email is not valid"),
-      technologies: Yup.string().required("Technologies is required"),
+      skills: Yup.string().required("Technologies is required"),
       github: Yup.string().required("Your GitHub account is required"),
       linkedin: Yup.string().required("Your LinkedIn account is required"),
-      discord: Yup.string().required("Your Discord account is required"),
+      discord_id: Yup.string().required("Your Discord account is required"),
     }),
     onSubmit: (values) => {
+      const { full_name, email, skills, github, linkedin, discord_id, questions, about } = values
+      try {
+        createUser({
+          variables: {
+            data: {
+              full_name,
+              email,
+              skills,
+              github,
+              linkedin,
+              skills,
+              discord_id,
+              questions,
+              about
+            }
+
+          }
+        })
+
+      } catch (error) {
+        console.error(error)
+      }
       console.log(values);
     },
   });
+
+
+
+
   return (
     <>
       <Layout />
@@ -40,7 +80,7 @@ export default function Home() {
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <section
 
-          
+
 
           className="ml-40 mt-5 flex flex-col items-center"
 
@@ -51,36 +91,36 @@ export default function Home() {
             onSubmit={formik.handleSubmit}
             className="grid grid-cols-2 gap-x-8 gap-y-4"
           >
-            {formik.touched.fullname && formik.errors.fullname ? (
+            {formik.touched.full_name && formik.errors.full_name ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.fullname}
+                placeholder={formik.errors.full_name}
               />
             ) : (
-              <input
-                type="text"
-                id="fullname"
-                placeholder="Full Name"
-                value={formik.values.fullname}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="text"
+                  id="full_name"
+                  placeholder="Full Name"
+                  value={formik.values.full_name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             {formik.touched.email && formik.errors.email ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.email}
               />
             ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="E-mail adress"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <Dropdown
               title="Role"
               options={["Participant", "Leader"]}
@@ -100,18 +140,18 @@ export default function Home() {
             {formik.touched.technologies && formik.errors.technologies ? (
               <textarea
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.technologies}
+                placeholder={formik.errors.skills}
               />
             ) : (
-              <textarea
-                placeholder="Technologies"
-                className="col-auto p-1 pl-3"
-                id="technologies"
-                value={formik.values.technologies}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <textarea
+                  placeholder="Technologies"
+                  className="col-auto p-1 pl-3"
+                  id="skills"
+                  value={formik.values.skills}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
 
             <div>
               <Dropdown
@@ -133,46 +173,46 @@ export default function Home() {
                 placeholder={formik.errors.github}
               />
             ) : (
-              <input
-                type="url"
-                name="github"
-                id="github"
-                placeholder="Github"
-                value={formik.values.github}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="url"
+                  name="github"
+                  id="github"
+                  placeholder="Github"
+                  value={formik.values.github}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             {formik.touched.linkedin && formik.errors.linkedin ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.linkedin}
               />
             ) : (
-              <input
-                type="url"
-                id="linkedin"
-                placeholder="LinkedIn"
-                value={formik.values.linkedin}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="url"
+                  id="linkedin"
+                  placeholder="LinkedIn"
+                  value={formik.values.linkedin}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             {formik.touched.discord && formik.errors.discord ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                 placeholder={formik.errors.discord}
               />
             ) : (
-              <input
-                type="text"
-                id="discord"
-                placeholder="Discord"
-                value={formik.values.discord}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="text"
+                  id="discord_id"
+                  placeholder="Discord"
+                  value={formik.values.discord_id}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <textarea
               placeholder="Any questions?"
               className="col-auto p-1 pl-3"
@@ -184,8 +224,8 @@ export default function Home() {
             <textarea
               className="-mt-9 col-auto p-1 pl-3"
               placeholder="Tell us something about yourself"
-              id="aboutYourself"
-              value={formik.values.aboutYourself}
+              id="about"
+              value={formik.values.about}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
