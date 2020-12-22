@@ -3,26 +3,27 @@ import RegistrationClosedForm from "../components/RegistrationClosedForm";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/react-hooks";
 
+
 const QUERY = gql`
   query allUsers {
     allUsers {
       full_name
+      role
     }
   }
 `;
 const Index = () => {
-  const { data, loading } = useQuery(QUERY);
-  if (loading) {
-    return 'cargando...'
-  }
+  const { data } = useQuery(QUERY);
+
 
   return (
     <>
-      {data && data.allUsers.length > 10 ? (
+      { data && data.allUsers.filter(role => role.role === "Participant").length > 20 ? (
         <RegistrationClosedForm />
       ) : (
           <MainForm />
-        )}
+        )
+      }
     </>
   );
 };

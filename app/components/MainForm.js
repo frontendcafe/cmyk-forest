@@ -3,7 +3,6 @@ import Sidebar from "../components/ui/Sidebar";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
-import TextArea from "../components/ui/TextArea";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql } from "@apollo/client";

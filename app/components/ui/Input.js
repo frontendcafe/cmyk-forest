@@ -1,12 +1,12 @@
-const Input = (props) => {
+const Input = ({ type, name, id, placeholder }) => {
     return (
         <input
-            type={props.type}
-            name={props.name}
-            id={props.id}
-            placeholder={props.placeholder}
+            type={type}
+            name={name}
+            id={id}
+            placeholder={placeholder}
             className="col-auto p-1 pl-3 h-9"
-          />
+        />
     )
 }
 
