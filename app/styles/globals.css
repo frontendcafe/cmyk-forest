@@ -72,6 +72,7 @@ button {
 }
 
 #mosaic {
+  width: 340px;
   height: 53vh;
   background-image: url(../public/assets/img/logo.png);
   background-repeat: repeat;
