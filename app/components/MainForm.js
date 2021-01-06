@@ -22,14 +22,14 @@ const MainForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      full_name: "",
-      email: "",
-      skills: "",
-      github: "",
-      linkedin: "",
-      discord_id: "",
-      questions: "",
-      about: "",
+      full_name: "Fulanito Perez",
+      email: "fulanito@mail.com",
+      skills: "react, redux",
+      github: "http://github.com/fulanito",
+      linkedin: "http://linkedin.com/fulanito",
+      discord_id: "fulanito",
+      questions: "nada todo tranca",
+      about: "soy fulanito",
     },
     validationSchema: Yup.object({
       full_name: Yup.string().required("Full Name is required"),
@@ -53,7 +53,8 @@ const MainForm = () => {
         about,
         available_time,
         role,
-        experience
+        experience,
+        level
       } = values;
       try {
         createUser({
@@ -70,7 +71,8 @@ const MainForm = () => {
               about,
               available_time,
               role,
-              experience
+              experience,
+              level
             },
           },
         });
@@ -152,9 +154,13 @@ const MainForm = () => {
             <Dropdown
               title="Level"
               options={[
-                "Level 1 (HTML, CSS, JAVASCRIPT)",
+                "Level 1 (HTML/CSS/JavaScript)",
                 "Level 2 (Level 1 + React)",
               ]}
+              id="level"
+              value={formik.values.level}
+              onChangeHandler={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
 
             {formik.touched.skills && formik.errors.skills ? (

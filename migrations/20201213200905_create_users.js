@@ -1,10 +1,6 @@
 exports.up = function (knex) {
     return knex.schema.createTable("user", function (table) {
         table.increments("id").primary();
-        // I'm not sure if this is the right way of adding FK but I leave them here just in case:
-
-        // table.foreign("project_id").references("id").inTable("projects");
-        // table.foreign("group_id").references("id").inTable("groups");
 
         table.string("full_name");
         table.string("email");
@@ -17,6 +13,8 @@ exports.up = function (knex) {
         table.string("discord_id");
         table.text("about");
         table.text("questions");
+        table.text("level");
+
     });
 };
 

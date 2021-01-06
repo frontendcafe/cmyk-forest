@@ -3,6 +3,7 @@ const { Text, Select, Checkbox, Url, Relationship } = require("@keystonejs/field
 const Users = (keystone) => {
     return keystone.createList("user", {
         fields: {
+
             group: {
                 type: Relationship,
                 ref: 'group'
@@ -11,15 +12,24 @@ const Users = (keystone) => {
                 type: Relationship,
                 ref: 'project'
             },
+
             full_name: {
                 type: Text,
             },
+
             email: {
                 type: Text,
             },
+
             role: {
                 type: Text,
             },
+            level: {
+                type: Select,
+                options: "Level 1 (HTML/CSS/JavaScript), Level 2 (Level 1 + React)",
+                dataType: "string"
+            },
+
             skills: {
                 type: Text,
                 isMultiline: true,
@@ -41,14 +51,16 @@ const Users = (keystone) => {
             discord_id: {
                 type: Text,
             },
-            about: {
-                type: Text,
-                isMultiline: true,
-            },
+
             questions: {
                 type: Text,
                 isMultiline: true,
             },
+            about: {
+                type: Text,
+                isMultiline: true,
+            },
+
         },
     });
 };
