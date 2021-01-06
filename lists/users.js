@@ -40,7 +40,9 @@ const Users = (keystone) => {
                 dataType: "string"
             },
             experience: {
-                type: Checkbox,
+                type: Select,
+                options: "Yes, No",
+                dataType: "string"
             },
             github: {
                 type: Url,

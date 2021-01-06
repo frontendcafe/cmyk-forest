@@ -22,14 +22,15 @@ const MainForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      full_name: "Fulanito Perez",
-      email: "fulanito@mail.com",
-      skills: "react, redux",
-      github: "http://github.com/fulanito",
-      linkedin: "http://linkedin.com/fulanito",
-      discord_id: "fulanito",
-      questions: "nada todo tranca",
-      about: "soy fulanito",
+      full_name: "",
+      email: "",
+      skills: "",
+      github: "",
+      linkedin: "",
+      discord_id: "",
+      questions: "",
+      about: "",
+      experience: ""
     },
     validationSchema: Yup.object({
       full_name: Yup.string().required("Full Name is required"),
@@ -196,9 +197,9 @@ const MainForm = () => {
               <div className="flex place-content-between mt-3">
                 <label className="justify-self-start">Experience</label>
                 <label htmlFor="Yes">Yes</label>
-                <Input type="radio" value="Yes" />
+                <Input type="radio" value="Yes" id="Yes" name="experience" onChangeHandler={formik.handleChange} />
                 <label htmlFor="No">No</label>
-                <Input type="radio" value="No" />
+                <Input type="radio" value="No" id="No" name="experience" onChangeHandler={formik.handleChange} />
               </div>
             </div>
             {formik.touched.github && formik.errors.github ? (

@@ -7,7 +7,7 @@ exports.up = function (knex) {
         table.string("role");
         table.text("skills");
         table.integer("available_time");
-        table.boolean("experience");
+        table.string("experience");
         table.string("github");
         table.string("linkedin");
         table.string("discord_id");
