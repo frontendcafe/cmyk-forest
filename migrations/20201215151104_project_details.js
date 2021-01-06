@@ -1,7 +1,6 @@
 exports.up = function (knex) {
     return knex.schema.createTable('project_detail', function (table) {
         table.increments()
-        // table.foreign("group_id").references("id").inTable("groups");
         table.string('name');
         table.text('product_details');
         table.string('board_link');

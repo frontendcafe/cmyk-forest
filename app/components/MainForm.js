@@ -30,6 +30,7 @@ const MainForm = () => {
       discord_id: "",
       questions: "",
       about: "",
+      experience: ""
     },
     validationSchema: Yup.object({
       full_name: Yup.string().required("Full Name is required"),
@@ -53,7 +54,8 @@ const MainForm = () => {
         about,
         available_time,
         role,
-        experience
+        experience,
+        level
       } = values;
       try {
         createUser({
@@ -70,7 +72,8 @@ const MainForm = () => {
               about,
               available_time,
               role,
-              experience
+              experience,
+              level
             },
           },
         });
@@ -152,9 +155,13 @@ const MainForm = () => {
             <Dropdown
               title="Level"
               options={[
-                "Level 1 (HTML, CSS, JAVASCRIPT)",
+                "Level 1 (HTML/CSS/JavaScript)",
                 "Level 2 (Level 1 + React)",
               ]}
+              id="level"
+              value={formik.values.level}
+              onChangeHandler={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
 
             {formik.touched.skills && formik.errors.skills ? (
@@ -190,9 +197,9 @@ const MainForm = () => {
               <div className="flex place-content-between mt-3">
                 <label className="justify-self-start">Experience</label>
                 <label htmlFor="Yes">Yes</label>
-                <Input type="radio" value="Yes" />
+                <Input type="radio" value="Yes" id="Yes" name="experience" onChangeHandler={formik.handleChange} />
                 <label htmlFor="No">No</label>
-                <Input type="radio" value="No" />
+                <Input type="radio" value="No" id="No" name="experience" onChangeHandler={formik.handleChange} />
               </div>
             </div>
             {formik.touched.github && formik.errors.github ? (
