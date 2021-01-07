@@ -62,7 +62,7 @@ p {
 }
 
 .grid {
-  width: 40vw;
+  width: 48vw;
 }
 
 input,
@@ -78,7 +78,7 @@ textarea {
 }
 
 textarea {
-  height: 11vh;
+  height: 10vh;
 }
 
 #available_time,
@@ -89,8 +89,7 @@ textarea {
 #buttonRed {
   height: 6vh;
   background: #d66e89;
-  margin-top: 4.5vh;
-  box-shadow: 1px solid black;
+  margin-top: 3.9vh;
 }
 
 #buttonYellow {
@@ -116,11 +115,26 @@ textarea {
 }
 
 img.cmyk {
-  width: 15vw;
+  width: 19vw;
 }
 
 #dropdown-error {
   background-color: #fee2e2;
   color: #766969;
   border-color: #b91c1c;
+}
+
+#dropdown-error-2 {
+  background-color: #fee2e2;
+  color: #766969;
+  border-color: #b91c1c;
+  width: 91%;
+}
+
+.experience-error {
+  background-color: #fee2e2;
+  color: #766969;
+  width: 91%;
+  margin-top: 2vh;
+  margin-left: 2.5vh;
 }

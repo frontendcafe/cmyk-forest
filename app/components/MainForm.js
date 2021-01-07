@@ -100,7 +100,7 @@ const MainForm = () => {
       <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk" />
       <form
         onSubmit={formik.handleSubmit}
-        className="grid sm:grid-cols-1 sm:gap-y-5  lg:grid-cols-2 lg:gap-x-1 lg:gap-y-6 xl:gap-x-2 xl:gap-y-6 2xl:gap-x-8 2xl:gap-y-10"
+        className="grid sm:grid-cols-1 sm:gap-y-5  lg:grid-cols-2 lg:gap-x-1 lg:gap-y-3 xl:gap-x-2 xl:gap-y-4 2xl:gap-x-3 2xl:gap-y-6"
       >
         {formik.touched.full_name && formik.errors.full_name ? (
           <input
@@ -212,10 +212,9 @@ const MainForm = () => {
         <div>
           {formik.touched.available_time && formik.errors.available_time ? (
             <Dropdown
-              className="bg-red-100 border-l-2 border-red-700 placeholder-black"
               options={[2, 4, 6, 8, 10, 12]}
               title={formik.errors.available_time}
-              id="dropdown-error"
+              id="dropdown-error-2"
               value={formik.values.available_time}
               onChangeHandler={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -231,9 +230,7 @@ const MainForm = () => {
           )}
           {formik.touched.experience && formik.errors.experience ? (
             <div className="flex-col">
-              <p className="bg-red-100 border-l-2 border-red-700 placeholder-black ml-2 mt-2 ">
-                {formik.errors.experience}
-              </p>
+              <p className="experience-error">{formik.errors.experience}</p>
               <div className="flex place-content-evenly ">
                 <label className="justify-self-start">Experience</label>
                 <label htmlFor="Yes">Yes</label>
