@@ -1,5 +1,3 @@
-import Layout from "../components/Layout";
-import Sidebar from "../components/ui/Sidebar";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
@@ -98,252 +96,246 @@ const MainForm = () => {
   });
 
   return (
-    <>
-      <Layout />
-      <div className="flex">
-        <Sidebar id="sidebar" title="WELCOME TO CMYK" />
-        <section
-          className="ml-40 mt-5 flex flex-col items-center"
-          id="formcontainer"
-        >
-          <img src="./assets/img/CMYK.png" alt="cmyk" className="w-72" />
-          <form
-            onSubmit={formik.handleSubmit}
-            className="grid grid-cols-2 gap-x-8 gap-y-4"
-          >
-            {formik.touched.full_name && formik.errors.full_name ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.full_name}
-                value={formik.values.full_name}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                type="text"
-                id="full_name"
-              />
-            ) : (
-              <input
-                type="text"
-                id="full_name"
-                placeholder="Full Name"
-                value={formik.values.full_name}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
-            {formik.touched.email && formik.errors.email ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.email}
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                type="email"
-                id="email"
-              />
-            ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+    <div
+      className="flex flex-col justify-center items-center"
+      id="formcontainer"
+    >
+      <img src="./assets/img/CMYK.png" alt="cmyk" className="  xl:w-72" />
+      <form
+        onSubmit={formik.handleSubmit}
+        className="grid sm:grid-cols-1  lg:grid-cols-2 gap-x-8 gap-y-8"
+      >
+        {formik.touched.full_name && formik.errors.full_name ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            placeholder={formik.errors.full_name}
+            value={formik.values.full_name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            type="text"
+            id="full_name"
+          />
+        ) : (
+          <input
+            type="text"
+            id="full_name"
+            placeholder="Full Name"
+            value={formik.values.full_name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
+        {formik.touched.email && formik.errors.email ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            placeholder={formik.errors.email}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            type="email"
+            id="email"
+          />
+        ) : (
+          <input
+            type="email"
+            id="email"
+            placeholder="E-mail adress"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
 
-            {formik.touched.role && formik.errors.role ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                title={formik.errors.role}
-                id="role"
-                value={formik.values.role}
-                onChangeHandler={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            ) : (
-              <Dropdown
-                title="Role"
-                options={["Participant", "Leader"]}
-                id="role"
-                value={formik.values.role}
-                onChangeHandler={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
-            {formik.touched.level && formik.errors.level ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                title={formik.errors.level}
-                id="level"
-                value={formik.values.level}
-                onChangeHandler={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            ) : (
-              <Dropdown
-                title="Level"
-                options={[
-                  "Level 1 (HTML/CSS/JavaScript)",
-                  "Level 2 (Level 1 + React)",
-                ]}
-                id="level"
-                value={formik.values.level}
-                onChangeHandler={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+        {formik.touched.role && formik.errors.role ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            title={formik.errors.role}
+            id="role"
+            value={formik.values.role}
+            onChangeHandler={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        ) : (
+          <Dropdown
+            title="Role"
+            options={["Participant", "Leader"]}
+            id="role"
+            value={formik.values.role}
+            onChangeHandler={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
+        {formik.touched.level && formik.errors.level ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            title={formik.errors.level}
+            id="level"
+            value={formik.values.level}
+            onChangeHandler={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        ) : (
+          <Dropdown
+            title="Level"
+            options={[
+              "Level 1 (HTML/CSS/JavaScript)",
+              "Level 2 (Level 1 + React)",
+            ]}
+            id="level"
+            value={formik.values.level}
+            onChangeHandler={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
 
-            {formik.touched.skills && formik.errors.skills ? (
-              <textarea
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.skills}
-                id="skills"
-                value={formik.values.skills}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            ) : (
-              <textarea
-                placeholder="Skills/Technologies"
-                className="col-auto p-1 pl-3"
-                id="skills"
-                value={formik.values.skills}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+        {formik.touched.skills && formik.errors.skills ? (
+          <textarea
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            placeholder={formik.errors.skills}
+            id="skills"
+            value={formik.values.skills}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        ) : (
+          <textarea
+            placeholder="Skills/Technologies"
+            className="col-auto p-1 pl-3"
+            id="skills"
+            value={formik.values.skills}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
 
-            <div>
-              {formik.touched.available_time && formik.errors.available_time ? (
-                <input
-                  className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                  title={formik.errors.available_time}
-                  id="available_time"
-                  value={formik.values.available_time}
-                  onChangeHandler={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-              ) : (
-                <Dropdown
-                  id="available_time"
-                  title="Available time"
-                  options={[2, 4, 6, 8, 10, 12]}
-                  value={formik.values.available_time}
-                  onChangeHandler={formik.handleChange}
-                />
-              )}
-              {formik.touched.experience && formik.errors.experience ? (
-                <div className="flex place-content-between mt-3">
-                  <p className="bg-red-100 border-l-2 border-red-700 placeholder-black">
-                    {formik.errors.experience}
-                  </p>
-                </div>
-              ) : (
-                <div className="flex place-content-between mt-3">
-                  <label className="justify-self-start">Experience</label>
-                  <label htmlFor="Yes">Yes</label>
-                  <Input
-                    type="radio"
-                    value="Yes"
-                    id="Yes"
-                    name="experience"
-                    onChangeHandler={formik.handleChange}
-                  />
-                  <label htmlFor="No">No</label>
-                  <Input
-                    type="radio"
-                    value="No"
-                    id="No"
-                    name="experience"
-                    onChangeHandler={formik.handleChange}
-                  />
-                </div>
-              )}
+        <div>
+          {formik.touched.available_time && formik.errors.available_time ? (
+            <input
+              className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+              title={formik.errors.available_time}
+              id="available_time"
+              value={formik.values.available_time}
+              onChangeHandler={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          ) : (
+            <Dropdown
+              id="available_time"
+              title="Available time"
+              options={[2, 4, 6, 8, 10, 12]}
+              value={formik.values.available_time}
+              onChangeHandler={formik.handleChange}
+            />
+          )}
+          {formik.touched.experience && formik.errors.experience ? (
+            <div className="flex place-content-between mt-3">
+              <p className="bg-red-100 border-l-2 border-red-700 placeholder-black">
+                {formik.errors.experience}
+              </p>
             </div>
-            {formik.touched.github && formik.errors.github ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.github}
-                value={formik.values.github}
-                type="url"
-                name="github"
-                id="github"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+          ) : (
+            <div className="flex place-content-between mt-3">
+              <label className="justify-self-start">Experience</label>
+              <label htmlFor="Yes">Yes</label>
+              <Input
+                type="radio"
+                value="Yes"
+                id="Yes"
+                name="experience"
+                onChangeHandler={formik.handleChange}
               />
-            ) : (
-              <input
-                type="url"
-                name="github"
-                id="github"
-                placeholder="Github"
-                value={formik.values.github}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+              <label htmlFor="No">No</label>
+              <Input
+                type="radio"
+                value="No"
+                id="No"
+                name="experience"
+                onChangeHandler={formik.handleChange}
               />
-            )}
-            {formik.touched.linkedin && formik.errors.linkedin ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                type="url"
-                id="linkedin"
-                placeholder={formik.errors.linkedin}
-                value={formik.values.linkedin}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            ) : (
-              <input
-                type="url"
-                id="linkedin"
-                placeholder="LinkedIn"
-                value={formik.values.linkedin}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
-            {formik.touched.discord_id && formik.errors.discord_id ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.discord_id}
-                value={formik.values.discord_id}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                type="text"
-                id="discord_id"
-              />
-            ) : (
-              <input
-                type="text"
-                id="discord_id"
-                placeholder="Discord"
-                value={formik.values.discord_id}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
-            <textarea
-              placeholder="Any questions?"
-              className="col-auto p-1 pl-3"
-              id="questions"
-              value={formik.values.questions}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <textarea
-              className="-mt-9 col-auto p-1 pl-3"
-              placeholder="Tell us something about yourself"
-              id="about"
-              value={formik.values.about}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <Button type="submit" text="JOIN" id="buttonRed" />
-          </form>
-        </section>
-      </div>
-    </>
+            </div>
+          )}
+        </div>
+        {formik.touched.github && formik.errors.github ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            placeholder={formik.errors.github}
+            value={formik.values.github}
+            type="url"
+            name="github"
+            id="github"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        ) : (
+          <input
+            type="url"
+            name="github"
+            id="github"
+            placeholder="Github"
+            value={formik.values.github}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
+        {formik.touched.linkedin && formik.errors.linkedin ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            type="url"
+            id="linkedin"
+            placeholder={formik.errors.linkedin}
+            value={formik.values.linkedin}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        ) : (
+          <input
+            type="url"
+            id="linkedin"
+            placeholder="LinkedIn"
+            value={formik.values.linkedin}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
+        {formik.touched.discord_id && formik.errors.discord_id ? (
+          <input
+            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+            placeholder={formik.errors.discord_id}
+            value={formik.values.discord_id}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            type="text"
+            id="discord_id"
+          />
+        ) : (
+          <input
+            type="text"
+            id="discord_id"
+            placeholder="Discord"
+            value={formik.values.discord_id}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
+        <textarea
+          placeholder="Any questions?"
+          className="col-auto p-1 pl-3"
+          id="questions"
+          value={formik.values.questions}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <textarea
+          className="-mt-9 col-auto p-1 pl-3"
+          placeholder="Tell us something about yourself"
+          id="about"
+          value={formik.values.about}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <Button type="submit" text="JOIN" id="buttonRed" />
+      </form>
+    </div>
   );
 };
 
