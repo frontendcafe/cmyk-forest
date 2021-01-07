@@ -26,7 +26,7 @@ const Faq = () => {
             }
           />
           <FaqData />
-          <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-2">
+          <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
             <Navbar className="anchorBlue" />
           </div>
         </div>
