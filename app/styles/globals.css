@@ -118,3 +118,9 @@ textarea {
 img.cmyk {
   width: 15vw;
 }
+
+#dropdown-error {
+  background-color: #fee2e2;
+  color: #766969;
+  border-color: #b91c1c;
+}

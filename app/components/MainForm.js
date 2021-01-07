@@ -20,16 +20,16 @@ const MainForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      full_name: "",
-      email: "",
+      full_name: "Braian",
+      email: "blvogric@gmail.com",
       role: "",
       level: "",
-      skills: "",
+      skills: "React",
       available_time: "",
       experience: "",
-      github: "",
-      linkedin: "",
-      discord_id: "",
+      github: "https://github.com/vogric",
+      linkedin: "https://linkedin.com/vogric",
+      discord_id: "vogric",
       questions: "",
       about: "",
     },
@@ -43,9 +43,9 @@ const MainForm = () => {
       skills: Yup.string().required("Skills/Technologies is required"),
       available_time: Yup.string().required("Available time is required"),
       experience: Yup.string().required("Experience time is required"),
-      github: Yup.string().required("Your GitHub account is required"),
-      linkedin: Yup.string().required("Your LinkedIn account is required"),
-      discord_id: Yup.string().required("Your Discord account is required"),
+      github: Yup.string().required("GitHub account is required"),
+      linkedin: Yup.string().required("LinkedIn account is required"),
+      discord_id: Yup.string().required("Discord account is required"),
     }),
     onSubmit: (values) => {
       const {
@@ -122,6 +122,7 @@ const MainForm = () => {
             onBlur={formik.handleBlur}
           />
         )}
+
         {formik.touched.email && formik.errors.email ? (
           <input
             className="bg-red-100 border-l-2 border-red-700 placeholder-black"
@@ -144,10 +145,10 @@ const MainForm = () => {
         )}
 
         {formik.touched.role && formik.errors.role ? (
-          <input
-            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+          <Dropdown
             title={formik.errors.role}
-            id="role"
+            options={["Participant", "Leader"]}
+            id="dropdown-error"
             value={formik.values.role}
             onChangeHandler={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -163,10 +164,13 @@ const MainForm = () => {
           />
         )}
         {formik.touched.level && formik.errors.level ? (
-          <input
-            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+          <Dropdown
+            options={[
+              "Level 1 (HTML/CSS/JavaScript)",
+              "Level 2 (Level 1 + React)",
+            ]}
             title={formik.errors.level}
-            id="level"
+            id="dropdown-error"
             value={formik.values.level}
             onChangeHandler={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -207,10 +211,11 @@ const MainForm = () => {
 
         <div>
           {formik.touched.available_time && formik.errors.available_time ? (
-            <input
+            <Dropdown
               className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+              options={[2, 4, 6, 8, 10, 12]}
               title={formik.errors.available_time}
-              id="available_time"
+              id="dropdown-error"
               value={formik.values.available_time}
               onChangeHandler={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -225,10 +230,29 @@ const MainForm = () => {
             />
           )}
           {formik.touched.experience && formik.errors.experience ? (
-            <div className="flex place-content-between mt-3">
-              <p className="bg-red-100 border-l-2 border-red-700 placeholder-black">
+            <div className="flex-col">
+              <p className="bg-red-100 border-l-2 border-red-700 placeholder-black ml-2 mt-2 ">
                 {formik.errors.experience}
               </p>
+              <div className="flex place-content-evenly ">
+                <label className="justify-self-start">Experience</label>
+                <label htmlFor="Yes">Yes</label>
+                <Input
+                  type="radio"
+                  value="Yes"
+                  id="Yes"
+                  name="experience"
+                  onChangeHandler={formik.handleChange}
+                />
+                <label htmlFor="No">No</label>
+                <Input
+                  type="radio"
+                  value="No"
+                  id="No"
+                  name="experience"
+                  onChangeHandler={formik.handleChange}
+                />
+              </div>
             </div>
           ) : (
             <div className="flex place-content-evenly mt-6">
