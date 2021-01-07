@@ -96,14 +96,11 @@ const MainForm = () => {
   });
 
   return (
-    <div
-      className="flex flex-col justify-center items-center"
-      id="formcontainer"
-    >
-      <img src="./assets/img/CMYK.png" alt="cmyk" className="  xl:w-72" />
+    <div className="flex flex-col items-center">
+      <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk" />
       <form
         onSubmit={formik.handleSubmit}
-        className="grid sm:grid-cols-1  lg:grid-cols-2 gap-x-8 gap-y-8"
+        className="grid sm:grid-cols-1 sm:gap-y-5  lg:grid-cols-2 lg:gap-x-1 lg:gap-y-6 xl:gap-x-2 xl:gap-y-6 2xl:gap-x-8 2xl:gap-y-10"
       >
         {formik.touched.full_name && formik.errors.full_name ? (
           <input
@@ -234,7 +231,7 @@ const MainForm = () => {
               </p>
             </div>
           ) : (
-            <div className="flex place-content-between mt-3">
+            <div className="flex place-content-evenly mt-6">
               <label className="justify-self-start">Experience</label>
               <label htmlFor="Yes">Yes</label>
               <Input
@@ -297,36 +294,36 @@ const MainForm = () => {
             onBlur={formik.handleBlur}
           />
         )}
-        {formik.touched.discord_id && formik.errors.discord_id ? (
-          <input
-            className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-            placeholder={formik.errors.discord_id}
-            value={formik.values.discord_id}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            type="text"
-            id="discord_id"
-          />
-        ) : (
-          <input
-            type="text"
-            id="discord_id"
-            placeholder="Discord"
-            value={formik.values.discord_id}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-        )}
+        <div>
+          {formik.touched.discord_id && formik.errors.discord_id ? (
+            <input
+              className="bg-red-100 border-l-2 border-red-700 placeholder-black "
+              placeholder={formik.errors.discord_id}
+              value={formik.values.discord_id}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="text"
+              id="discord_id"
+            />
+          ) : (
+            <input
+              type="text"
+              id="discord_id"
+              placeholder="Discord"
+              value={formik.values.discord_id}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          )}
+        </div>
         <textarea
           placeholder="Any questions?"
-          className="col-auto p-1 pl-3"
           id="questions"
           value={formik.values.questions}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
         <textarea
-          className="-mt-9 col-auto p-1 pl-3"
           placeholder="Tell us something about yourself"
           id="about"
           value={formik.values.about}
