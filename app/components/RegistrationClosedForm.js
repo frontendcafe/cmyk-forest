@@ -51,52 +51,49 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex">
-        <section
-          className="ml-40 pl-10 mt-20   flex flex-col items-center  "
-          id="formcontainer"
-        >
-          <img src="./assets/img/CMYK.png" alt="" className="w-72" />
+      <div className="flex flex-col items-center mt-20 " id="formcontainer">
+        <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk" />
 
-          <p className="text-gray-500 text-base font-bold">
-            The registration for this event is now closed.
-          </p>
-          <p className="text-gray-500 text-base pb-10 ">
-            Enter your email below to get notified as soon as we open new
-            registrations.
-          </p>
-          <form
-            onSubmit={formik.handleSubmit}
-            className="grid gap-x-8 gap-y-4  "
+        <p className="text-gray-500 text-base font-bold">
+          The registration for this event is now closed.
+        </p>
+        <p className="text-gray-500 text-base pb-10 ">
+          Enter your email below to get notified as soon as we open new
+          registrations.
+        </p>
+        <form onSubmit={formik.handleSubmit} className="closed-form">
+          {formik.touched.email && formik.errors.email ? (
+            <input
+              className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+              placeholder={formik.errors.email}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="email"
+              id="email"
+            />
+          ) : (
+            <input
+              type="email"
+              id="email"
+              placeholder="E-mail adress"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          )}
+          <Button type="submit" text="SUBMIT" id="buttonYellow" />
+        </form>
+        <p className="text-gray-500 text-sm pt-10 ">
+          Visit
+          <a
+            className="text-yellow-500 text-sm pl-1 pr-1 "
+            href="https://frontend.cafe/"
           >
-            {formik.touched.email && formik.errors.email ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.email}
-              />
-            ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
-            <Button type="submit" text="SUBMIT" id="buttonYellow" />
-          </form>
-          <p className="text-gray-500 text-sm pt-10 ">
-            Visit
-            <a
-              className="text-yellow-500 text-sm pl-1 pr-1 "
-              href="https://frontend.cafe/"
-            >
-              our website
-            </a>
-            to see past projects.
-          </p>
-        </section>
+            our website
+          </a>
+          to see past projects.
+        </p>
       </div>
     </>
   );

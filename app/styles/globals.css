@@ -138,3 +138,9 @@ img.cmyk {
   margin-top: 2vh;
   margin-left: 2.5vh;
 }
+
+.closed-form {
+  width: 26vw;
+  display: flex;
+  flex-direction: column;
+}

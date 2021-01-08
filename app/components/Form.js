@@ -17,13 +17,14 @@ export const Form = () => {
   const { data } = useQuery(QUERY);
   return (
     <div>
-      {data &&
+      <RegistrationClosedForm />
+      {/* {data &&
       data.allUsers.filter((role) => role.role === "Participant").length >
         20 ? (
         <RegistrationClosedForm />
       ) : (
         <MainForm />
-      )}
+      )} */}
     </div>
   );
 };
