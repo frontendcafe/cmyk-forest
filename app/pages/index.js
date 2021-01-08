@@ -1,19 +1,32 @@
 import Header from "../components/Head";
-import Sidebar from "../components/ui/Sidebar";
-import Navbar from "../components/ui/Navbar";
-import { Form } from "../components/Form";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/react-hooks";
+import MainForm from "../components/MainForm";
+import RegistrationClosedForm from "../components/RegistrationClosedForm";
+
+const QUERY = gql`
+  query allUsers {
+    allUsers {
+      full_name
+      role
+    }
+  }
+`;
 
 export const index = () => {
+  const { data } = useQuery(QUERY);
   return (
     <>
       <Header />
       <div className="min-h-screen">
         <div className="flex min-h-screen">
-          <Sidebar id="sidebar" title="WELCOME TO CMYK" />
-          <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
-            <Navbar className="className" />
-            <Form />
-          </div>
+          {data &&
+          data.allUsers.filter((role) => role.role === "Participant").length >
+            20 ? (
+            <RegistrationClosedForm />
+          ) : (
+            <MainForm />
+          )}
         </div>
       </div>
     </>
