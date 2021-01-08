@@ -25,9 +25,10 @@ const Faq = () => {
               </p>
             }
           />
-          <FaqData />
+
           <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
             <Navbar className="anchorBlue" />
+            <FaqData />
           </div>
         </div>
       </div>
