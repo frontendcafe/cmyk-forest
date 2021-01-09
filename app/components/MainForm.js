@@ -3,12 +3,12 @@ import { useMutation } from "@apollo/react-hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
+import emailjs from 'emailjs-com';
 import Navbar from "./ui/Navbar";
 import Sidebar from "./ui/Sidebar";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
-import emailjs from 'emailjs-com';
 
 
 const CREATE_USER = gql`
@@ -19,14 +19,10 @@ const CREATE_USER = gql`
     }
   }
 `;
-const MainForm = () => {
+const MainForm = (props) => {
   const [createUser] = useMutation(CREATE_USER);
 
-  // function getStaticProps() {
-  //   const templateId = process.env.TEMPLATE_ID
-  //   const mailService = process.env.MAIL_SERVICE
-  //   const userId = process.env.USER_ID
-  // }
+  console.log(process.env.NEXT_PUBLIC_MAIL_SERVICE)
 
   const formik = useFormik({
     initialValues: {
@@ -93,13 +89,14 @@ const MainForm = () => {
           },
         });
 
-        console.log(process.env)
+
+
         const templateParams = {
           name: full_name,
           email: email
         }
 
-        emailjs.send("mailService", "templateId", templateParams, "userId")
+        emailjs.send(process.env.NEXT_PUBLIC_MAIL_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE_ID, templateParams, process.env.NEXT_PUBLIC_USER_ID)
 
         Swal.fire({
           title: "Form sent!",
@@ -117,6 +114,7 @@ const MainForm = () => {
 
   return (
     <>
+
       <Sidebar id="sidebar" title="WELCOME TO CMYK" />
       <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
         <Navbar className="className" />
