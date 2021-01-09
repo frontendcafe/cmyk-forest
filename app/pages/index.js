@@ -21,14 +21,17 @@ export const index = () => {
       <Header />
       <div className="min-h-screen">
         <div className="flex min-h-screen">
-          <SuccessRegistration />
-          {/* {data &&
-          data.allUsers.filter((role) => role.role === "Participant").length >
+          {data &&
+          data.allUsers.filter((role) => role.role === "Participant").length <
             20 ? (
+            <SuccessRegistration />
+          ) : data &&
+            data.allUsers.filter((role) => role.role === "Participant").length >
+              20 ? (
             <RegistrationClosedForm />
           ) : (
             <MainForm />
-          )} */}
+          )}
         </div>
       </div>
     </>
