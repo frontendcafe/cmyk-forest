@@ -1,8 +1,8 @@
-import MainForm from "../components/MainForm";
-import RegistrationClosedForm from "../components/RegistrationClosedForm";
+import Header from "../components/Head";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/react-hooks";
-
+import MainForm from "../components/MainForm";
+import RegistrationClosedForm from "../components/RegistrationClosedForm";
 
 const QUERY = gql`
   query allUsers {
@@ -12,20 +12,25 @@ const QUERY = gql`
     }
   }
 `;
-const Index = () => {
+
+export const index = () => {
   const { data } = useQuery(QUERY);
-
-
   return (
     <>
-      { data && data.allUsers.filter(role => role.role === "Participant").length > 20 ? (
-        <RegistrationClosedForm />
-      ) : (
-          <MainForm />
-        )
-      }
+      <Header />
+      <div className="min-h-screen">
+        <div className="flex min-h-screen">
+          {data &&
+          data.allUsers.filter((role) => role.role === "Participant").length >
+            20 ? (
+            <RegistrationClosedForm />
+          ) : (
+            <MainForm />
+          )}
+        </div>
+      </div>
     </>
   );
 };
 
-export default Index;
+export default index;

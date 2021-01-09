@@ -1,13 +1,13 @@
-import Layout from "../components/Layout";
-import Sidebar from "../components/ui/Sidebar";
+import { gql } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import Swal from "sweetalert2";
+import Navbar from "./ui/Navbar";
+import Sidebar from "./ui/Sidebar";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { gql } from "@apollo/client";
-import { useMutation } from "@apollo/react-hooks";
-import Swal from "sweetalert2";
 
 const CREATE_USER = gql`
   mutation createUser($data: UserCreateInput) {
@@ -22,16 +22,16 @@ const MainForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      full_name: "",
-      email: "",
+      full_name: "Braian",
+      email: "blvogric@gmail.com",
       role: "",
       level: "",
-      skills: "",
+      skills: "React",
       available_time: "",
       experience: "",
-      github: "",
-      linkedin: "",
-      discord_id: "",
+      github: "https://github.com/vogric",
+      linkedin: "https://linkedin.com/vogric",
+      discord_id: "vogric",
       questions: "",
       about: "",
     },
@@ -45,9 +45,9 @@ const MainForm = () => {
       skills: Yup.string().required("Skills/Technologies is required"),
       available_time: Yup.string().required("Available time is required"),
       experience: Yup.string().required("Experience time is required"),
-      github: Yup.string().required("Your GitHub account is required"),
-      linkedin: Yup.string().required("Your LinkedIn account is required"),
-      discord_id: Yup.string().required("Your Discord account is required"),
+      github: Yup.string().required("GitHub account is required"),
+      linkedin: Yup.string().required("LinkedIn account is required"),
+      discord_id: Yup.string().required("Discord account is required"),
     }),
     onSubmit: (values) => {
       const {
@@ -99,17 +99,14 @@ const MainForm = () => {
 
   return (
     <>
-      <Layout />
-      <div className="flex">
-        <Sidebar id="sidebar" title="WELCOME TO CMYK" />
-        <section
-          className="ml-40 mt-5 flex flex-col items-center"
-          id="formcontainer"
-        >
-          <img src="./assets/img/CMYK.png" alt="cmyk" className="w-72" />
+      <Sidebar id="sidebar" title="WELCOME TO CMYK" />
+      <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
+        <Navbar className="className" />
+        <div className="flex flex-col items-center">
+          <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk" />
           <form
             onSubmit={formik.handleSubmit}
-            className="grid grid-cols-2 gap-x-8 gap-y-4"
+            className="grid sm:grid-cols-1 sm:gap-y-5  lg:grid-cols-2 lg:gap-x-1 lg:gap-y-3 xl:gap-x-2 xl:gap-y-4 2xl:gap-x-3 2xl:gap-y-6"
           >
             {formik.touched.full_name && formik.errors.full_name ? (
               <input
@@ -131,6 +128,7 @@ const MainForm = () => {
                 onBlur={formik.handleBlur}
               />
             )}
+
             {formik.touched.email && formik.errors.email ? (
               <input
                 className="bg-red-100 border-l-2 border-red-700 placeholder-black"
@@ -153,9 +151,14 @@ const MainForm = () => {
             )}
 
             {formik.touched.role && formik.errors.role ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+              <Dropdown
                 title={formik.errors.role}
+                options={["Participant", "Leader"]}
+                style={{
+                  backgroundColor: "#fee2e2",
+                  color: "#766969",
+                  borderColor: "#b91c1c",
+                }}
                 id="role"
                 value={formik.values.role}
                 onChangeHandler={formik.handleChange}
@@ -172,9 +175,17 @@ const MainForm = () => {
               />
             )}
             {formik.touched.level && formik.errors.level ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+              <Dropdown
+                options={[
+                  "Level 1 (HTML/CSS/JavaScript)",
+                  "Level 2 (Level 1 + React)",
+                ]}
                 title={formik.errors.level}
+                style={{
+                  backgroundColor: "#fee2e2",
+                  color: "#766969",
+                  borderColor: "#b91c1c",
+                }}
                 id="level"
                 value={formik.values.level}
                 onChangeHandler={formik.handleChange}
@@ -216,9 +227,15 @@ const MainForm = () => {
 
             <div>
               {formik.touched.available_time && formik.errors.available_time ? (
-                <input
-                  className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+                <Dropdown
+                  options={[2, 4, 6, 8, 10, 12]}
                   title={formik.errors.available_time}
+                  style={{
+                    backgroundColor: "#fee2e2",
+                    color: "#766969",
+                    borderColor: "#b91c1c",
+                    width: "91%",
+                  }}
                   id="available_time"
                   value={formik.values.available_time}
                   onChangeHandler={formik.handleChange}
@@ -234,13 +251,30 @@ const MainForm = () => {
                 />
               )}
               {formik.touched.experience && formik.errors.experience ? (
-                <div className="flex place-content-between mt-3">
-                  <p className="bg-red-100 border-l-2 border-red-700 placeholder-black">
-                    {formik.errors.experience}
-                  </p>
+                <div className="flex-col">
+                  <p className="experience-error">{formik.errors.experience}</p>
+                  <div className="flex place-content-evenly ">
+                    <label className="justify-self-start">Experience</label>
+                    <label htmlFor="Yes">Yes</label>
+                    <Input
+                      type="radio"
+                      value="Yes"
+                      id="Yes"
+                      name="experience"
+                      onChangeHandler={formik.handleChange}
+                    />
+                    <label htmlFor="No">No</label>
+                    <Input
+                      type="radio"
+                      value="No"
+                      id="No"
+                      name="experience"
+                      onChangeHandler={formik.handleChange}
+                    />
+                  </div>
                 </div>
               ) : (
-                <div className="flex place-content-between mt-3">
+                <div className="flex place-content-evenly mt-6">
                   <label className="justify-self-start">Experience</label>
                   <label htmlFor="Yes">Yes</label>
                   <Input
@@ -303,36 +337,36 @@ const MainForm = () => {
                 onBlur={formik.handleBlur}
               />
             )}
-            {formik.touched.discord_id && formik.errors.discord_id ? (
-              <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
-                placeholder={formik.errors.discord_id}
-                value={formik.values.discord_id}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                type="text"
-                id="discord_id"
-              />
-            ) : (
-              <input
-                type="text"
-                id="discord_id"
-                placeholder="Discord"
-                value={formik.values.discord_id}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+            <div>
+              {formik.touched.discord_id && formik.errors.discord_id ? (
+                <input
+                  className="bg-red-100 border-l-2 border-red-700 placeholder-black "
+                  placeholder={formik.errors.discord_id}
+                  value={formik.values.discord_id}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  id="discord_id"
+                />
+              ) : (
+                <input
+                  type="text"
+                  id="discord_id"
+                  placeholder="Discord"
+                  value={formik.values.discord_id}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
+            </div>
             <textarea
               placeholder="Any questions?"
-              className="col-auto p-1 pl-3"
               id="questions"
               value={formik.values.questions}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
             <textarea
-              className="-mt-9 col-auto p-1 pl-3"
               placeholder="Tell us something about yourself"
               id="about"
               value={formik.values.about}
@@ -341,7 +375,7 @@ const MainForm = () => {
             />
             <Button type="submit" text="JOIN" id="buttonRed" />
           </form>
-        </section>
+        </div>
       </div>
     </>
   );
