@@ -15,6 +15,7 @@ const QUERY = gql`
 export const FaqData = () => {
   const { data, loading } = useQuery(QUERY);
   return (
+
     <div className="pl-20 mt-2 pr-20 ">
       {loading ? (
         <Spinner />
@@ -27,5 +28,6 @@ export const FaqData = () => {
         ))
       )}
     </div>
+
   );
 };

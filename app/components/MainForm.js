@@ -4,12 +4,14 @@ import { useMutation } from "@apollo/react-hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
+import emailjs from 'emailjs-com';
 import Navbar from "./ui/Navbar";
 import Sidebar from "./ui/Sidebar";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Dropdown from "../components/ui/Dropdown";
 import SuccessRegistration from "./SuccessRegistration";
+
 
 const CREATE_USER = gql`
   mutation createUser($data: UserCreateInput) {
@@ -19,9 +21,11 @@ const CREATE_USER = gql`
     }
   }
 `;
-const MainForm = () => {
+const MainForm = (props) => {
   const [createUser] = useMutation(CREATE_USER);
   const [formSent, setFormSent] = useState(false)
+
+  console.log(process.env.NEXT_PUBLIC_MAIL_SERVICE)
 
   const formik = useFormik({
     initialValues: {
@@ -52,7 +56,7 @@ const MainForm = () => {
       linkedin: Yup.string().required("LinkedIn account is required"),
       discord_id: Yup.string().required("Discord account is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, e) => {
       const {
         full_name,
         email,
@@ -87,6 +91,16 @@ const MainForm = () => {
             },
           },
         });
+
+
+
+        const templateParams = {
+          name: full_name,
+          email: email
+        }
+
+        emailjs.send(process.env.NEXT_PUBLIC_MAIL_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE_ID, templateParams, process.env.NEXT_PUBLIC_USER_ID)
+
         Swal.fire({
           title: "Form sent!",
           text: "Don't forget to check on Discord",
@@ -103,8 +117,10 @@ const MainForm = () => {
     },
   });
 
+
   return (
     <>
+
       {formSent ? <SuccessRegistration /> : (<>
         <Sidebar id="sidebar" title="WELCOME TO CMYK" />
         <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
@@ -157,6 +173,7 @@ const MainForm = () => {
                   />
                 )}
 
+
               {formik.touched.role && formik.errors.role ? (
                 <Dropdown
                   title={formik.errors.role}
@@ -173,6 +190,7 @@ const MainForm = () => {
                 />
               ) : (
                   <Dropdown
+
                     title="Role"
                     options={["Participant", "Leader"]}
                     id="role"
@@ -303,6 +321,7 @@ const MainForm = () => {
                   )}
               </div>
               {formik.touched.github && formik.errors.github ? (
+
                 <input
                   className="bg-red-100 border-l-2 border-red-700 placeholder-black"
                   placeholder={formik.errors.github}
@@ -315,6 +334,7 @@ const MainForm = () => {
                 />
               ) : (
                   <input
+
                     type="url"
                     name="github"
                     id="github"
@@ -340,10 +360,12 @@ const MainForm = () => {
                     id="linkedin"
                     placeholder="LinkedIn"
                     value={formik.values.linkedin}
+
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
                 )}
+
               <div>
                 {formik.touched.discord_id && formik.errors.discord_id ? (
                   <input
@@ -384,7 +406,6 @@ const MainForm = () => {
             </form>
           </div>
         </div> </>)}
-
     </>
   );
 };
