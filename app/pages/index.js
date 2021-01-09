@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 import MainForm from "../components/MainForm";
 import RegistrationClosedForm from "../components/RegistrationClosedForm";
 
+
 const QUERY = gql`
   query allUsers {
     allUsers {
@@ -20,9 +21,9 @@ export const index = () => {
       <Header />
       <div className="min-h-screen">
         <div className="flex min-h-screen">
-          {data &&
-            data.allUsers.filter((role) => role.role === "Participant").length >
-            150 ? (
+
+          {data && data.allUsers.filter((role) => role.role === "Participant").length >
+            20 ? (
               <RegistrationClosedForm />
             ) : (
               <MainForm />
