@@ -144,3 +144,10 @@ img.cmyk {
   display: flex;
   flex-direction: column;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 83vh;
+}
