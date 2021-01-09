@@ -24,6 +24,13 @@
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+#sidebarGreen {
+  width: 340px;
+  height: 100vh;
+  background: linear-gradient(180deg, #007a63 1.24%, #00c39d 42.12%);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
 /* ClassName prop para Navbar */
 a {
   font-family: "Open Sans", sans-serif;
@@ -38,6 +45,10 @@ a {
 
 .anchorYellow {
   color: #f3c74c;
+}
+
+.anchorGreen {
+  color: #007a63;
 }
 
 h1 {
