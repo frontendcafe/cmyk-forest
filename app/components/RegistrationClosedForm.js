@@ -57,10 +57,10 @@ export default function Home() {
       <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
         <Navbar className="anchorYellow" />
         <div className="flex flex-col items-center mt-20 " id="formcontainer">
-          <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk" />
+          <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk pt-5" />
 
-          <p className="text-gray-500 text-base font-bold">
-            The registration for this event is now closed.
+          <p className="text-gray-500 text-base md:text-lg xl:text-xl font-bold">
+            The registration for this event is now closed. 😕
           </p>
           <p className="text-gray-500 text-base pb-10 ">
             Enter your email below to get notified as soon as we open new
@@ -89,16 +89,12 @@ export default function Home() {
             )}
             <Button type="submit" text="SUBMIT" id="buttonYellow" />
           </form>
-          <p className="text-gray-500 text-sm pt-10 ">
-            Visit
-            <a
-              className="text-yellow-500 text-sm pl-1 pr-1 "
-              href="https://frontend.cafe/"
-            >
-              our website
-            </a>
-            to see past projects.
-          </p>
+          <a
+            className="text-yellow-500 text-sm mt-7 "
+            href="https://frontend.cafe/"
+          >
+            Visit our website to see past projects.
+          </a>
         </div>
       </div>
     </>
