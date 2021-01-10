@@ -1,4 +1,4 @@
-const Dropdown = ({ style, id, options, title, onChangeHandler, onBlur }) => {
+const Dropdown = ({ style, id, options, title, onChangeHandler }) => {
   const selectOptions = options.map((option) => (
     <option value={option}>{option}</option>
   ));
