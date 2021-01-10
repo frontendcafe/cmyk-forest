@@ -13,6 +13,7 @@ const CREATE_USER = gql`
     createUser(data: $data) {
       email
       role
+      full_name
     }
   }
 `;
@@ -30,12 +31,13 @@ export default function Home() {
         .email("Email is not valid"),
     }),
     onSubmit: (values) => {
-      const { email } = values;
+      const { email, full_name } = values;
       try {
         createUser({
           variables: {
             data: {
               email,
+              full_name
             },
           },
         });
@@ -91,15 +93,15 @@ export default function Home() {
                 id="email"
               />
             ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="E-mail adress"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <Button type="submit" text="SUBMIT" id="buttonYellow" />
           </form>
           <a

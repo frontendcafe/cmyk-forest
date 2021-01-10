@@ -22,7 +22,7 @@ export const index = () => {
         <div className="flex min-h-screen">
           {data &&
             data.allUsers.filter((role) => role.role === "Participant").length >
-            20 ? (
+            30 ? (
               <RegistrationClosedForm />
             ) : (
               <MainForm />

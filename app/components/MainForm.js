@@ -133,7 +133,7 @@ const MainForm = () => {
       ) : (
           <>
             <Sidebar id="sidebar" title="WELCOME TO CMYK" />
-            <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
+            <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen ">
               <Navbar className="className" />
 
               {data &&
