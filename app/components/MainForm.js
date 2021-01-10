@@ -404,7 +404,7 @@ const MainForm = (props) => {
                 <Button type="submit" text="JOIN" id="buttonRed" />
               </form>
             </div>
-          </div>{" "}
+          </div>
         </>
       )}
     </>
