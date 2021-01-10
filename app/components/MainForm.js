@@ -21,7 +21,6 @@ const CREATE_USER = gql`
     }
   }
 `;
-
 const QUERY = gql`
   query allUsers {
     allUsers {
@@ -34,6 +33,7 @@ const MainForm = () => {
   const { data } = useQuery(QUERY);
   const [createUser] = useMutation(CREATE_USER);
   const [formSent, setFormSent] = useState(false);
+
 
   const formik = useFormik({
     initialValues: {
@@ -123,7 +123,6 @@ const MainForm = () => {
       } catch (error) {
         console.error(error);
       }
-      console.log(values);
     },
   });
 
