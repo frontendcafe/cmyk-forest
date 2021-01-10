@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
+import emailjs from "emailjs-com";
 import Navbar from "./ui/Navbar";
 import Sidebar from "./ui/Sidebar";
 import Button from "../components/ui/Button";
@@ -38,6 +39,19 @@ export default function Home() {
             },
           },
         });
+
+        const templateParams = {
+          name: full_name,
+          email: email,
+        };
+
+        emailjs.send(
+          process.env.NEXT_PUBLIC_MAIL_SERVICE,
+          process.env.NEXT_PUBLIC_TEMPLATE_ID,
+          templateParams,
+          process.env.NEXT_PUBLIC_USER_ID
+        );
+
         Swal.fire({
           title: "Form sent!",
           text: "Don't forget to check on Discord",
@@ -47,7 +61,6 @@ export default function Home() {
       } catch (error) {
         console.error(error);
       }
-      console.log(values);
     },
   });
 
