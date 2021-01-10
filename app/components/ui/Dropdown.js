@@ -1,6 +1,6 @@
-const Dropdown = ({ style, id, options, title, onChangeHandler, onBlur }) => {
+const Dropdown = ({ style, id, options, title, onChangeHandler, defaultValue }) => {
   const selectOptions = options.map((option) => (
-    <option value={option}>{option}</option>
+    <option value={option} >{option}</option>
   ));
 
   return (
@@ -9,8 +9,9 @@ const Dropdown = ({ style, id, options, title, onChangeHandler, onBlur }) => {
       style={style}
       onChange={onChangeHandler}
       id={id}
+      defaultValue={defaultValue}
     >
-      <option value="" disabled selected>
+      <option value="" disabled selected >
         {title}
       </option>
       {selectOptions}
