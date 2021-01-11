@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = ({ className }) => {
   return (
-    <ul className="w-full space-x-5 mt-2 flex justify-end">
+    <ul className="mt-2 flex justify-end">
       <li className="inline cursor-pointer font-bold">
         <Link href="/">
           <a className={className}>Register</a>

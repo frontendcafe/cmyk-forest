@@ -37,7 +37,7 @@ export default function Home() {
           variables: {
             data: {
               email,
-              full_name
+              full_name,
             },
           },
         });
@@ -84,7 +84,7 @@ export default function Home() {
           <form onSubmit={formik.handleSubmit} className="closed-form">
             {formik.touched.email && formik.errors.email ? (
               <input
-                className="bg-red-100 border-l-2 border-red-700 placeholder-black"
+                className="error-email"
                 placeholder={formik.errors.email}
                 value={formik.values.email}
                 onChange={formik.handleChange}
@@ -93,15 +93,15 @@ export default function Home() {
                 id="email"
               />
             ) : (
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="E-mail adress"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-              )}
+              <input
+                type="email"
+                id="email"
+                placeholder="E-mail adress"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+            )}
             <Button type="submit" text="SUBMIT" id="buttonYellow" />
           </form>
           <a
