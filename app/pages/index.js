@@ -21,12 +21,12 @@ export const index = () => {
       <div className="min-h-screen">
         <div className="flex min-h-screen">
           {data &&
-            data.allUsers.filter((role) => role.role === "Participant").length >
+          data.allUsers.filter((role) => role.role === "Participant").length >
             30 ? (
-              <RegistrationClosedForm />
-            ) : (
-              <MainForm />
-            )}
+            <RegistrationClosedForm />
+          ) : (
+            <MainForm />
+          )}
         </div>
       </div>
     </>
