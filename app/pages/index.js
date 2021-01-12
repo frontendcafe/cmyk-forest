@@ -13,6 +13,7 @@ const QUERY = gql`
   }
 `;
 
+
 export const index = () => {
   const { data } = useQuery(QUERY);
   return (
