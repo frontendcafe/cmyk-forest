@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Navbar from "./ui/Navbar";
 import Sidebar from "./ui/Sidebar";
 
@@ -7,8 +8,17 @@ export const SuccessRegistration = () => {
       <Sidebar id="sidebarGreen" title="WELCOME TO CMYK" />
       <div className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
         <Navbar className="anchorGreen" />
-        <div className="flex flex-col items-center mt-20 " id="formcontainer">
-          <img
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="flex flex-col items-center mt-20 "
+          id="formcontainer"
+        >
+          <motion.img
+            initial={{ y: -250 }}
+            animate={{ y: -10 }}
+            transition={{ delay: 0.2 }}
             src="./assets/img/cmyk-green.png"
             alt="cmyk"
             className="cmyk mt-10 pt-5"
@@ -31,7 +41,7 @@ export const SuccessRegistration = () => {
           >
             Go to the FEC Discord 🚀
           </a>
-        </div>
+        </motion.div>
       </div>
     </>
   );
