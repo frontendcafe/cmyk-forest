@@ -206,13 +206,18 @@
 
   .text-black {
     font-size: 15px;
-    font-style: ;
     font-weight: bold;
   }
 
   .mt-3 {
     font-size: 13px;
   }
+  
+
+p.mt-2:nth-child(12) {
+  margin-bottom: 30px;
+}
+
 }
 
 @media only screen and (min-width: 645px) {

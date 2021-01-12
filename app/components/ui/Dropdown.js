@@ -11,7 +11,7 @@ const Dropdown = ({ style, id, options, title, onChangeHandler, defaultValue }) 
       id={id}
       defaultValue={defaultValue}
     >
-      <option disabled  >
+      <option value="" disabled selected >
         {title}
       </option>
       {selectOptions}

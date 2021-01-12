@@ -494,7 +494,6 @@ const MainForm = () => {
                             color: "#766969",
                             borderColor: "#b91c1c",
                           }}
-                          defaultValue=""
                           id="role"
                           value={formik.values.role}
                           onChangeHandler={formik.handleChange}
@@ -505,7 +504,6 @@ const MainForm = () => {
                             title="Role"
                             options={["Participant", "Leader"]}
                             id="role"
-                            defaultValue=""
                             value={formik.values.role}
                             onChangeHandler={formik.handleChange}
                             onBlur={formik.handleBlur}
