@@ -20,6 +20,7 @@ const CREATE_USER = gql`
 export default function Home() {
   const [createUser] = useMutation(CREATE_USER);
 
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -49,14 +50,14 @@ export default function Home() {
 
         emailjs.send(
           process.env.NEXT_PUBLIC_MAIL_SERVICE,
-          process.env.NEXT_PUBLIC_TEMPLATE_ID,
+          process.env.NEXT_PUBLIC_WAITING_TEMPLATE_ID,
           templateParams,
           process.env.NEXT_PUBLIC_USER_ID
         );
 
         Swal.fire({
           title: "Form sent!",
-          text: "Don't forget to check on Discord",
+          text: "Don't forget to check on your email",
           icon: "success",
           confirmButtonText: "Cool",
         });
@@ -93,15 +94,15 @@ export default function Home() {
                 id="email"
               />
             ) : (
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail adress"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            )}
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="E-mail adress"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              )}
             <Button type="submit" text="SUBMIT" id="buttonYellow" />
           </form>
           <a
