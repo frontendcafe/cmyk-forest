@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/react-hooks";
 import { useMutation } from "@apollo/react-hooks";
 import { useFormik } from "formik";
+import { motion } from "framer-motion";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
@@ -139,7 +140,12 @@ const MainForm = () => {
             {data &&
             data.allUsers.filter((role) => role.role === "Participant").length >
               20 ? (
-              <div className="flex flex-col items-center">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col items-center"
+              >
                 <h1 className="text-gray-800 sm:text-lg md:text-xl xl:text-2xl mt-12 pt-2  mb-4">
                   Sorry 😕
                 </h1>
@@ -147,15 +153,28 @@ const MainForm = () => {
                   We regret to inform you that there are no places available,
                   but...🤔
                 </h1>
-                <p className="text-gray-500 font-bold text-base mr-20 ml-20 pr-22 pl-22  ">
+                <motion.p
+                  initial={{ x: -150, opacity: 0, color: "#d66e89" }}
+                  animate={{ x: 0, opacity: 1, color: "#000000" }}
+                  transition={{ delay: 3.5 }}
+                  className="text-gray-500 font-bold text-base mr-20 ml-20 pr-22 pl-22  "
+                >
                   You can still sign up as a substitute and in case there is a
                   space available, we will notify you!😊
-                </p>
-                <p className="text-gray-500 font-bold text-base mr-20 ml-20 pr-22 pl-22 mb-10 ">
+                </motion.p>
+                <motion.p
+                  initial={{ x: -150, opacity: 0, color: "#d66e89" }}
+                  animate={{ x: 0, opacity: 1, color: "#000000" }}
+                  transition={{ delay: 6.5 }}
+                  className="text-gray-500 font-bold text-base mr-20 ml-20 pr-22 pl-22 mb-10 "
+                >
                   Check out the FAQ page to see how it works
-                </p>
+                </motion.p>
 
-                <form
+                <motion.form
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 12 }}
                   onSubmit={formik.handleSubmit}
                   className="grid sm:grid-cols-1 sm:gap-y-5  lg:grid-cols-2 lg:gap-x-1 lg:gap-y-3 xl:gap-x-2 xl:gap-y-4 2xl:gap-x-3 2xl:gap-y-6"
                 >
@@ -434,11 +453,23 @@ const MainForm = () => {
                     onBlur={formik.handleBlur}
                   />
                   <Button type="submit" text="JOIN" id="buttonRed" />
-                </form>
-              </div>
+                </motion.form>
+              </motion.div>
             ) : (
-              <div className="flex flex-col items-center">
-                <img src="./assets/img/CMYK.png" alt="cmyk" className="cmyk" />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col items-center"
+              >
+                <motion.img
+                  initial={{ y: -250 }}
+                  animate={{ y: -10 }}
+                  transition={{ delay: 0.2 }}
+                  src="./assets/img/CMYK.png"
+                  alt="cmyk"
+                  className="cmyk"
+                />
                 <form
                   onSubmit={formik.handleSubmit}
                   className="grid sm:grid-cols-1 sm:gap-y-5  lg:grid-cols-2 lg:gap-x-1 lg:gap-y-3 xl:gap-x-2 xl:gap-y-4 2xl:gap-x-3 2xl:gap-y-6"
@@ -720,7 +751,7 @@ const MainForm = () => {
                   />
                   <Button type="submit" text="JOIN" id="buttonRed" />
                 </form>
-              </div>
+              </motion.div>
             )}
           </div>
         </>

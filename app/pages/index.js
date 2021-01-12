@@ -1,6 +1,6 @@
+import Header from "../components/Head";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/react-hooks";
-import Header from "../components/Head";
 import MainForm from "../components/MainForm";
 import RegistrationClosedForm from "../components/RegistrationClosedForm";
 
