@@ -10,7 +10,7 @@ const Navbar = ({ className }) => {
       </li>
       <li className="inline cursor-pointer font-bold">
         <Link href="https://frontend.cafe/">
-          <a className={className}>FrontEnd Café</a>
+          <a className={className}>FrontEndCafé</a>
         </Link>
       </li>
       <li className="inline cursor-pointer font-bold">
