@@ -1,6 +1,6 @@
 # KeystoneJS Starter Template
 
-You've created a KeystoneJS project! This project contains a simple list of users and an admin application (`localhost:3000/admin`) with basic authentication.
+This project contains a simple list of users and an admin application (`localhost:3000/admin`) with basic authentication.
 
 ## Running the Project.
 
@@ -8,11 +8,7 @@ To run this project first run `npm install`. Note: If you generated this project
 
 Once running, the Keystone Admin UI is reachable via `localhost:3000/admin`.
 
-## Next steps
-
-This example has no front-end application but you can build your own using the GraphQL API (`http://localhost:3000/admin/graphiql`).
-
-## Crete table (using FAQ as an example)
+## Create table (using FAQ as an example)
 
 1. knex migrate:make create_faq
 2. return knex.schema.createTable etc (read documentation)
@@ -22,6 +18,10 @@ This example has no front-end application but you can build your own using the G
 6. createList passing the same string we passed in migrations (in this case 'faq')
 7. import in lists/index.js
 8. call it inside function loadLists in lists/index.js
+
+## GraphQL API
+
+(`http://localhost:3000/admin/graphiql`).
 
 # Next.js
 
