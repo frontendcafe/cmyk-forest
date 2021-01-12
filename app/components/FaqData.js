@@ -19,13 +19,13 @@ export const FaqData = () => {
       {loading ? (
         <Spinner />
       ) : (
-          data.allFaqs.map((faq) => (
-            <>
-              <h1 className="text-black text-lg mt-10">{faq.question}</h1>
-              <p className="mt-2">{faq.answer}</p>
-            </>
-          ))
-        )}
+        data.allFaqs.map((faq) => (
+          <>
+            <h1 className="text-black text-lg mt-10">{faq.question}</h1>
+            <p className="mt-2">{faq.answer}</p>
+          </>
+        ))
+      )}
     </div>
   );
 };

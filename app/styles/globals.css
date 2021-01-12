@@ -19,12 +19,10 @@
   a {
     font-family: "Open Sans", sans-serif;
     color: #d96ba6;
-    font-size: 1vh;
-    margin-left: 1.4rem;
     font-size: 4.7vw;
     padding-right: 16px;
-    margin-bottom: 7vh;
     margin-bottom: 0vh;
+    margin-left: 25px;
   }
 
   .flex-col {
@@ -212,12 +210,14 @@
   .mt-3 {
     font-size: 13px;
   }
-  
 
-p.mt-2:nth-child(12) {
-  margin-bottom: 30px;
-}
+  p.mt-2:nth-child(12) {
+    margin-bottom: 30px;
+  }
 
+  .justify-end {
+    /* justify-content: flex-end; */
+  }
 }
 
 @media only screen and (min-width: 645px) {
