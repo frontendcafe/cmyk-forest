@@ -1,4 +1,8 @@
-# KeystoneJS Starter Template
+# CMYK
+
+This project arises with the intention of collaborating with the registration of participants to FrontEndCafé CMYK projects.
+
+## KeystoneJS Starter Template
 
 This project contains a simple list of users and an admin application (`localhost:3000/admin`) with basic authentication.
 
@@ -23,7 +27,7 @@ Once running, the Keystone Admin UI is reachable via `localhost:3000/admin`.
 
 (`http://localhost:3000/admin/graphiql`).
 
-# Next.js
+## Next.js
 
 To run this project first run `npm install`.
 
