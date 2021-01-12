@@ -218,6 +218,16 @@
   .justify-end {
     /* justify-content: flex-end; */
   }
+
+  .spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 45vh;
+  }
+
+  .pl-20 {
+    padding-left: 1rem;
+  }
 }
 
 @media only screen and (min-width: 645px) {
