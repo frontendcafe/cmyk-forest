@@ -12,6 +12,7 @@
     "apollo-client": "^2.6.10",
     "autoprefixer": "^9",
     "dotenv": "^8.2.0",
+    "emailjs-com": "^2.6.4",
     "formik": "^2.2.6",
     "framer-motion": "^3.2.1",
     "graphql": "^15.4.0",
