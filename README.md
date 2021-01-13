@@ -40,3 +40,34 @@ yarn dev
 ```
 
 Open [http://localhost:4000](http://localhost:4000) with your browser to see the result.
+
+
+# Test the app without backend 
+
+## Main route
+
+https://cmyk-panel-test.vercel.app/
+
+## Success Registation:
+
+This screen is displayed after the participant registration is successful.
+
+path -> /success-registration
+
+full route -> https://cmyk-panel-test.vercel.app/success-registration
+
+## Substitute Participant Form:
+
+This screen is shown when the maximum number of participants has been completed, but with the possibility that the person interested in participating in the event can register as a substitute participant
+
+path -> /substitute-participant-form
+
+full route -> https://cmyk-panel-test.vercel.app/substitute-participant-form
+
+## Closed Form
+
+This screen is displayed when registrations are complete for both participants and substitute participants.
+
+path -> /closed-form
+
+full route -> https://cmyk-panel-test.vercel.app/closed-form
