@@ -10,6 +10,7 @@ const { KnexAdapter: Adapter } = require("@keystonejs/adapter-knex");
 const PROJECT_NAME = "cmyk-panel";
 const adapterConfig = { knexOptions: { connection: process.env.DB_URL } };
 
+
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== "true" && initialiseData,

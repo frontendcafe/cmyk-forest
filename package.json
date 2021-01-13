@@ -17,6 +17,7 @@
     "create-tables": "cross-env CREATE_TABLES=true keystone create-tables"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.6",
     "@keystonejs/adapter-knex": "^12.0.2",
     "@keystonejs/app-admin-ui": "^7.3.9",
     "@keystonejs/app-graphql": "^6.1.3",
@@ -25,6 +26,9 @@
     "@keystonejs/keystone": "^17.1.1",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "knex": "^0.21.12"
+    "graphql": "^15.4.0",
+    "knex": "^0.21.12",
+    "react-spinners": "^0.10.4",
+    "sweetalert2": "^10.12.5"
   }
 }
